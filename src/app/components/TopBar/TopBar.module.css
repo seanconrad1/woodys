@@ -1,0 +1,13 @@
+
+
+.topBarContainer{
+	width: 100%;
+	color: #666768;
+}
+
+.brandImage{
+	height: 100%;
+	width: 150px;
+	object-fit: contain;
+	position: relative;
+}

@@ -1,21 +1,23 @@
-import Image from "next/image";
-import Nav from "./components/Nav/Nav";
+"use client"
+import SideNav from "./components/SideNav/SideNav";
 import styles from "./page.module.css";
+import TopBar from "./components/TopBar/TopBar";
+import ImageCrossfader from "./components/ImageCrossfader/ImageCrossfader";
+import localFont from 'next/font/local'
+
+const myFont = localFont({ src: './assets/fonts/pt_sans.woff' })
+
+console.log(myFont);
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.backgroundImageWrapper}>
-				<div className={styles.gradient}/>
-        <div className={styles.backgroundImage}>
-					
-          <Nav />
+    <main className={`${styles.main} ${myFont.className}`}>
+      <div className={styles.container}>
+        <TopBar />
 
-          <header>
-            <h1>WOODYS</h1>
-            <p>Your tagline or additional information</p>
-          </header>
-
+        <div className={styles.sideNavAndImageContainer}>
+          <SideNav />
+          <ImageCrossfader />
         </div>
       </div>
     </main>
