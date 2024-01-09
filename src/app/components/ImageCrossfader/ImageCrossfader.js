@@ -1,24 +1,27 @@
 import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import styles from "./ImageCrossfader.module.css";
-import { importAssetsFromFolder, removeExtension } from "@/utils/utils";
+import {
+  importAssetsFromFolder,
+  removeExtension,
+  removeExtAndDashes,
+} from "@/utils/utils";
 
-const imagesArr = importAssetsFromFolder(require.context('../../assets/carouselImages', false, /\.(png|jpe?g|svg)$/))
+const imagesArr = importAssetsFromFolder(
+  require.context("../../assets/carouselImages", false, /\.(png|jpe?g|svg)$/)
+);
 
 const ImageCrossfader = () => {
-
-	const imagesLength = Object.keys(imagesArr).length
-  const imageRef = useRef(null);
+  const imagesLength = Object.keys(imagesArr).length;
 
   useEffect(() => {
     let timer = setInterval(() => {
       nextImage();
     }, 4000);
     let curImage = 0;
-    let numImages = imagesLength
+    let numImages = imagesLength;
 
     function nextImage() {
-
       let imageElement;
       // remove show class from current image
       imageElement = document.getElementById("slideimg" + curImage);
@@ -53,21 +56,25 @@ const ImageCrossfader = () => {
     return () => clearInterval(timer);
   }, [imagesLength]);
 
-
-
-
   return (
     <div className={styles.crossfaderContainer}>
       {Object.keys(imagesArr).map((image, idx) => {
         return (
-          <Image
+          <div
             key={idx}
             id={`slideimg${idx}`}
-            ref={imageRef}
-            className={`${styles.image} ${idx === 0 ? styles.show : ""} `}
-            src={imagesArr[image].default}
-            alt={removeExtension(image)}
-          />
+            className={`${styles.imageAndTextContainer}  ${
+              idx === 0 ? styles.show : ""
+            }`}
+          >
+            <Image
+              className={`${styles.image} `}
+              src={imagesArr[image].default}
+              alt={removeExtension(image)}
+            />
+            <div className={`${styles.menuItemName}`}>{removeExtAndDashes(image)}</div>
+						<div className={styles.gradient}></div>
+          </div>
         );
       })}
     </div>

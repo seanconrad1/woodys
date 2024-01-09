@@ -1,0 +1,44 @@
+.footerContainer{
+	height: 400px;
+	margin-top: 79px;
+	background-color: var(--purple);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	background-image: url('../../assets/bg_cropped.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+
+.brandImgContainer{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.brandImg{
+  width: 250px;
+  height: 250px;
+  border: 1px solid black;
+  border-radius: 150px;
+}
+
+.infoItemsContainer{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	color: white;
+}
+
+.address{
+  font-family: var(--font)
+}
+
+.byFooter{
+	color: #fff;
+	text-align: center;
+	padding: 15px 0;
+	font-size: .8em;
+}

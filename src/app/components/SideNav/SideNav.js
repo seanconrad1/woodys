@@ -1,7 +1,10 @@
 import React from "react";
 import styles from "./SideNav.module.css";
+import SocialsContainer from "../SocialsContainer/SocialsContainer";
 
 const SideNav = () => {
+  const iconColor = "black";
+
   return (
     <div className={styles.sideNavContainer}>
       <nav className={styles.sideNav}>
@@ -26,34 +29,14 @@ const SideNav = () => {
           </li>
 
           <li className={styles.listItem}>
-            <a className={styles.listItemLink}>Gallery</a>
-          </li>
-          <li className={styles.listItem}>
-            <a className={styles.listItemLink}>Contact</a>
+            <a href="gallery" className={styles.listItemLink}>
+              Gallery
+            </a>
           </li>
         </ul>
       </nav>
 
-      <div className={styles.menuSocialContainer}>
-				<ul>
-					<a target="_blank" href="https://www.instagram.com/woodysfamoussalads/?hl=en">
-						<div>insta</div>
-					</a>
-					<a target="_blank" href="https://www.facebook.com/Woodysfamoussalads/?ref=bookmarks">
-						<div>facebook</div>
-					</a>
-					<a target="_blank" href="https://twitter.com/WoodysSalads">
-						<div>twitter</div>
-					</a>
-					<a target="_blank" href="https://maps.app.goo.gl/1zw2Ao5SbUtyKqnq8">
-						<div>google maps</div>
-					</a>
-					<a target="_blank" href="https://www.yelp.com/biz/woodys-famous-salads-tampa">
-						<div>yelp</div>
-					</a>
-				</ul>
-
-			</div>
+      <SocialsContainer size={"xl"} color={"black"} />
     </div>
   );
 };

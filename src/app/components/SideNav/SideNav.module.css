@@ -1,51 +1,50 @@
-
-.sideNavContainer{
-	position: relative;
-	background-color: white;
-	max-width: 300px;
-	padding-left: 3rem !important;
-	padding-right: 1rem !important;
-	padding-top: 3rem !important;
+.sideNavContainer {
+  position: relative;
+  background-color: white;
+  max-width: 300px;
+  padding-left: 3rem !important;
+  padding-right: 1rem !important;
+  padding-top: 4rem !important;
 }
 
-.sideNav{
-
+.sideNav {
 }
 
-.sideNavMenu{
-	display: flex;
-	flex-direction: column;
-	font-weight: 400;
-	width: 100%;
-	text-transform: none;
-	font-size: 20px;
-	font-family: "PT Sans Bold";
+.sideNavMenu {
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+  width: 100%;
+  text-transform: none;
+  font-size: 20px;
+	margin-bottom: 20px;
+}
+
+.listItem {
+  list-style: none;
+  padding-left: 0;
+  font-weight: bold !important;
+  margin-top: 10px;
+  color: black;
+  font-size: 2em;
+  line-height: 1;
+}
+
+.listItem:hover {
+  /* color: white; */
+}
+
+.location {
+  color: var(--purple)
+}
+
+.location:hover {
+  color: var(--purple)
+}
+
+.listItemLink {
+  line-height: 1.3;
+  position: relative;
 }
 
 
-
-.listItem{
-	list-style: none;
-	padding-left: 0;
-	font-weight: bold !important;
-	margin-top: 10px;
-	color: black;
-	font-size: 2em;
-	line-height: 1;
-}
-
-.location{
-	color: #EC7604;
-
-}
-
-.listItemLink{
-	line-height: 1.3;
-	position: relative;
-}
-
-
-.menuSocialContainer{
-	display: flex;
-	flex-direction: row;
-}

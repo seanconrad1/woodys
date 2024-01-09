@@ -1,0 +1,14 @@
+
+.menuSocialContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.icon {
+  padding: 5px;
+}
+
+
+.faIcon:hover {
+  color: var(--purple)
+}

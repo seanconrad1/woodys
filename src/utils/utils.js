@@ -17,3 +17,13 @@ export function removeExtension(filename) {
 	var filenameWithoutExtension = filename.replace(pattern, '');
 	return filenameWithoutExtension;
 }
+
+// removes file extension from filename
+export function removeExtAndDashes(filename) {
+	// Define a regular expression pattern to match the extension
+	var pattern = /\.[^.]+$/;
+	// Use replace() to replace the matched extension with an empty string
+	var filenameWithoutExtension = filename.replace(pattern, '');
+	var final = filenameWithoutExtension.replaceAll('-', ' ')
+	return final;
+}
