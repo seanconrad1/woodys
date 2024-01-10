@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import { Playfair_Display } from "next/font/google";
+
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import SideNav from "./components/SideNav/SideNav";
@@ -15,6 +16,8 @@ const playFairFont = Playfair_Display({
   subsets: ["latin"],
   display: "swap",
 });
+
+
 
 export const metadata = {
   title: "Create Next App",

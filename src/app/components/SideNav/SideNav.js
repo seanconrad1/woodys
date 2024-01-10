@@ -13,23 +13,23 @@ const SideNav = () => {
             <div>TAMPA</div>
           </li>
           <li className={styles.listItem}>
-            <a href="home" className={styles.listItemLink}>
+            <a href="/" className={styles.listItemLink}>
               Home
             </a>
           </li>
           <li className={styles.listItem}>
-            <a href="menu" className={styles.listItemLink}>
+            <a href="/menu-catering" className={styles.listItemLink}>
               Menu & Catering
             </a>
           </li>
           <li className={styles.listItem}>
-            <a href="weekly-soups" className={styles.listItemLink}>
+            <a href="/weekly-soups" className={styles.listItemLink}>
               Weekly Soups
             </a>
           </li>
 
           <li className={styles.listItem}>
-            <a href="gallery" className={styles.listItemLink}>
+            <a href="/gallery" className={styles.listItemLink}>
               Gallery
             </a>
           </li>

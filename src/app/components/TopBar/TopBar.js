@@ -4,8 +4,12 @@ import brandImage from "../../assets/brand.png";
 import brandWhite from "../../assets/woodys_white.jpeg";
 import barBg from "../../assets/bar_bg.jpeg";
 import Image from "next/image";
+import localFont from 'next/font/local'
+
+const avenirFont = localFont({ src: '../../assets/fonts/avenir_next.woff2' })
 
 const TopBar = () => {
+
   const pickupLink =
     "https://ordering.chownow.com/order/6077/locations?add_cn_ordering_class=true";
   const deliveryLink =
@@ -22,9 +26,9 @@ const TopBar = () => {
           className={styles.brandImage}
         ></Image>
       </a>
-      <div className={styles.bars}>
+      <div className={`${styles.bars} ${avenirFont.className}`}>
         <div className={`${styles.bar} ${styles.bar1}`}>
-          <a href="/about-us" className={styles.bar1Item}>About Us</a>
+          <a href="/about" className={styles.bar1Item}>About Us</a>
         </div>
         <div className={`${styles.bar} ${styles.bar2}`}>
           <div className={styles.bar2Item}>

@@ -1,0 +1,24 @@
+.aboutContainer{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding-left: 55px;
+	padding-right: 55px;
+	margin: 0 auto;
+}
+
+.aboutUsHeader{
+	font-weight: 500;
+}
+
+.about{
+	max-width: 1200px;
+	padding: 40px 0;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+	color: #585858;
+}
