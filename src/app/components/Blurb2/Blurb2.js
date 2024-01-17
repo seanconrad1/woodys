@@ -27,7 +27,7 @@ const Blurb2 = ({
         </div>
         <div className={styles.blurbTextContainer}>
           <Image src={sandwich} alt={""} className={styles.blurbImage} />
-          <div className={styles.blurb}>{blurb2}</div>
+          <div className={styles.blurb}>{blurb3}</div>
         </div>
       </div>
     </div>
