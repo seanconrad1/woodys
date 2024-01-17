@@ -100,9 +100,13 @@
 
 	.sideNavContainer {
 		padding-top: unset !important;
-		border-top: 1px solid black;
 		max-width: unset;
 		width: 100%;
+		padding-left: 1rem !important;
+	}
+
+	.border{
+		border-top: 1px solid black;
 	}
 
   .sideNav {
@@ -111,7 +115,4 @@
 		overflow: hidden;
     transition: height 0.3s ease-in-out;
   }
-	.open {
-		height: auto; /* or specify a fixed height if you know it */
-	}
 }

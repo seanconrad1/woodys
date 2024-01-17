@@ -49,7 +49,7 @@ const SideNav = () => {
           </a>
 					</div>
         </div>
-        <div className={styles.sideNavContainer}>
+        <div className={`${styles.sideNavContainer} ${isOpen && styles.border}`}>
           <nav
             ref={contentRef}
             style={{ height }}
