@@ -19,7 +19,7 @@ const SideNav = () => {
           </li>
           <li className={styles.listItem}>
             <a href="/menu-catering" className={styles.listItemLink}>
-              Menu & Catering
+						Menu &amp; Catering
             </a>
           </li>
           <li className={styles.listItem}>
