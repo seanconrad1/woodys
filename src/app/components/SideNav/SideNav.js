@@ -3,8 +3,6 @@ import styles from "./SideNav.module.css";
 import SocialsContainer from "../SocialsContainer/SocialsContainer";
 
 const SideNav = () => {
-  const iconColor = "black";
-
   return (
     <div className={styles.sideNavContainer}>
       <nav className={styles.sideNav}>

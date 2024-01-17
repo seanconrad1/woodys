@@ -1,12 +1,9 @@
 import { Inter } from "next/font/google";
 import { Playfair_Display } from "next/font/google";
-import { usePathname } from 'next/navigation'
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import SideNav from "./components/SideNav/SideNav";
 import TopBar from "./components/TopBar/TopBar";
 import Footer from "./components/Footer/Footer";
-import styles from "./layout.module.css";
 config.autoAddCss = false;
 
 import "./globals.css";
@@ -16,8 +13,6 @@ const playFairFont = Playfair_Display({
   subsets: ["latin"],
   display: "swap",
 });
-
-
 
 export const metadata = {
   title: "Create Next App",
@@ -29,10 +24,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${inter.className} ${playFairFont.className}`}>
         <TopBar />
-					<div className={styles.sideNavAndImageContainer}>
-						<SideNav />
-						{children}
-					</div>
+        {children}
         <Footer />
       </body>
     </html>
