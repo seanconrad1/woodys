@@ -19,12 +19,12 @@
 }
 
 .blurbImage {
-  width: 250px;
-  height: 250px;
+  width: 280px;
+  height: 280px;
   object-fit: cover;
   border-radius: 0.5rem;
   transition: all 0.2s ease-in-out;
-	margin-bottom: 12px;
+	margin-bottom: 24px;
 }
 
 .blurbTextContainer {
