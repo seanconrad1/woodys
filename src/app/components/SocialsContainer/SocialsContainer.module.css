@@ -1,4 +1,3 @@
-
 .menuSocialContainer {
   display: flex;
   flex-direction: row;
@@ -8,7 +7,13 @@
   padding: 5px;
 }
 
-
 .faIcon:hover {
-  color: var(--purple)
+  color: var(--purple);
+}
+
+@media screen and (max-width: 768px) {
+  .menuSocialContainer {
+    display: flex;
+    margin-top: 24px;
+  }
 }

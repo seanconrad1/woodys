@@ -81,3 +81,73 @@
 .orderNowLink:hover {
   background-color: var(--purple);
 }
+
+
+@media screen and (max-width: 1100px)  {
+	.topBarContainer {
+		--barHeight: 100px;
+		width: 100%;
+		color: #666768;
+		padding: 0 !important;
+		margin: 0 !important;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+	}
+
+	.brandImageLink {
+		border-radius: unset;
+		position: relative;
+		top: 0;
+		left: 0;
+		padding: 24px 24px;
+		/* height: 200px; */
+	}
+	
+	.brandImage {
+		width: 100%;
+		height: unset;
+		border: unset;
+		border-radius: unset;
+		z-index: 1;
+		position: relative;
+		object-fit: contain;
+	}
+}
+
+@media screen and (max-width: 768px)  {
+	
+}
+
+@media screen and (max-width: 450px)  {
+	.topBarContainer {
+		--barHeight: 50px;
+		width: 100%;
+		color: #666768;
+		padding: 0 !important;
+		margin: 0 !important;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+	}
+
+	.brandImageLink {
+		border-radius: unset;
+		position: relative;
+		top: 0;
+		left: 0;
+		padding: 12px 12px;
+		/* height: 200px; */
+	}
+	
+	.brandImage {
+		width: 100%;
+		height: unset;
+		border: unset;
+		border-radius: unset;
+		z-index: 1;
+		position: relative;
+		object-fit: contain;
+	}
+	
+}

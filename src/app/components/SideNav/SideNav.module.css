@@ -7,9 +7,6 @@
   padding-top: 4rem !important;
 }
 
-.sideNav {
-}
-
 .sideNavMenu {
   display: flex;
   flex-direction: column;
@@ -17,7 +14,7 @@
   width: 100%;
   text-transform: none;
   font-size: 20px;
-	margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .listItem {
@@ -35,11 +32,11 @@
 }
 
 .location {
-  color: var(--purple)
+  color: var(--purple);
 }
 
 .location:hover {
-  color: var(--purple)
+  color: var(--purple);
 }
 
 .listItemLink {
@@ -48,3 +45,58 @@
 }
 
 
+
+@media screen and (max-width: 768px) {
+	.barContainer{
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		border-top: 1px solid black;
+		height: 100%;
+	}
+
+	.button{
+		background-color: white;
+		color: white;
+		padding: 10px;
+		font-size: 1.5em;
+		font-weight: bold;
+		text-decoration: none;
+		cursor: pointer;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		border:none;
+		flex-direction: column;
+		background-color: white;
+		height: 100%;
+		width: 100%;
+	}
+	
+	.label{
+		font-size: 0.5em;
+		font-weight: 400;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		margin-bottom: 5px;
+		color: black;
+	}
+	.button:hover{
+		color: white;
+		text-decoration: none;
+	}
+
+	.sideNavContainer {
+		padding-top: unset !important;
+	}
+
+  .sideNav {
+		height: 0;
+		overflow: hidden;
+    transition: height 0.3s ease-in-out;
+  }
+	.open {
+		height: auto; /* or specify a fixed height if you know it */
+	}
+}
