@@ -5,8 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useWindowSize } from "@react-hook/window-size";
 import { faUtensils } from "@fortawesome/free-solid-svg-icons";
 
-const orderPickupLink = "https://ordering.chownow.com/order/6077/locations?add_cn_ordering_class=true"
-const orderDeliveryLink = "https://www.ubereats.com/store/woodys-famous-salads-south-tampa/bv6aTsx2Rm6xnWPw13gSbg?diningMode=DELIVERY&pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMjQ1OTIlMjBTJTIwVHdpbmxlYWYlMjBEciUyMiUyQyUyMnJlZmVyZW5jZSUyMiUzQSUyMmhlcmUlM0FhZiUzQXN0cmVldHNlY3Rpb24lM0FWNG1RM2tmbTl0RmplSGNnMGlpR2hDJTNBQ2djSUJDQzUtdk1rRUFFYUJEUTFPVEklMjIlMkMlMjJyZWZlcmVuY2VUeXBlJTIyJTNBJTIyaGVyZV9wbGFjZXMlMjIlMkMlMjJsYXRpdHVkZSUyMiUzQTMzLjI2Njg2JTJDJTIybG9uZ2l0dWRlJTIyJTNBLTExMS43NzIxNCU3RA%3D%3D"
+const orderPickupLink =
+  "https://ordering.chownow.com/order/6077/locations?add_cn_ordering_class=true";
+const orderDeliveryLink =
+  "https://www.ubereats.com/store/woodys-famous-salads-south-tampa/bv6aTsx2Rm6xnWPw13gSbg?diningMode=DELIVERY&pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMjQ1OTIlMjBTJTIwVHdpbmxlYWYlMjBEciUyMiUyQyUyMnJlZmVyZW5jZSUyMiUzQSUyMmhlcmUlM0FhZiUzQXN0cmVldHNlY3Rpb24lM0FWNG1RM2tmbTl0RmplSGNnMGlpR2hDJTNBQ2djSUJDQzUtdk1rRUFFYUJEUTFPVEklMjIlMkMlMjJyZWZlcmVuY2VUeXBlJTIyJTNBJTIyaGVyZV9wbGFjZXMlMjIlMkMlMjJsYXRpdHVkZSUyMiUzQTMzLjI2Njg2JTJDJTIybG9uZ2l0dWRlJTIyJTNBLTExMS43NzIxNCU3RA%3D%3D";
 
 const SideNav = () => {
   const [windowWidth] = useWindowSize();
@@ -39,17 +41,23 @@ const SideNav = () => {
             <div className={styles.label}>{"Menu"}</div>
           </button>
 
-				<div className={styles.orderButtons}>
-          <a href={orderPickupLink} target="_blank" className={styles.button}>
-            ORDER PICKUP
-          </a>
+          <div className={styles.orderButtons}>
+            <a href={orderPickupLink} target="_blank" className={styles.button}>
+              ORDER PICKUP
+            </a>
 
-          <a href={orderDeliveryLink} target="_blank" className={styles.button}>
-            ORDER DELIVERY
-          </a>
-					</div>
+            <a
+              href={orderDeliveryLink}
+              target="_blank"
+              className={styles.button}
+            >
+              ORDER DELIVERY
+            </a>
+          </div>
         </div>
-        <div className={`${styles.sideNavContainer} ${isOpen && styles.border}`}>
+        <div
+          className={`${styles.sideNavContainer} ${isOpen && styles.border}`}
+        >
           <nav
             ref={contentRef}
             style={{ height }}
@@ -84,6 +92,11 @@ const SideNav = () => {
               <li>
                 <SocialsContainer size={"xl"} color={"black"} />
               </li>
+
+              <li className={styles.address}>
+                1722 S DALE MABRY HWY TAMPA, FL 33629
+              </li>
+              <li>813-254-2806</li>
             </ul>
           </nav>
         </div>

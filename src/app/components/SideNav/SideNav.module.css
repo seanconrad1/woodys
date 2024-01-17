@@ -105,6 +105,11 @@
 		padding-left: 1rem !important;
 	}
 
+	.address{
+		margin-top: 24px;
+		width: 250px;
+	}
+
 	.border{
 		border-top: 1px solid black;
 	}
