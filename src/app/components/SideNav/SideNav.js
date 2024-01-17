@@ -39,6 +39,7 @@ const SideNav = () => {
             <div className={styles.label}>{"Menu"}</div>
           </button>
 
+				<div className={styles.orderButtons}>
           <a href={orderPickupLink} target="_blank" className={styles.button}>
             ORDER PICKUP
           </a>
@@ -46,6 +47,7 @@ const SideNav = () => {
           <a href={orderDeliveryLink} target="_blank" className={styles.button}>
             ORDER DELIVERY
           </a>
+					</div>
         </div>
         <div className={styles.sideNavContainer}>
           <nav
