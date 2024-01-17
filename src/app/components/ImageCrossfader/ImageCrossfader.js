@@ -6,7 +6,6 @@ import {
   removeExtension,
   removeExtAndDashes,
 } from "@/utils/utils";
-
 const imagesArr = importAssetsFromFolder(
   require.context("../../assets/carouselImages", false, /\.(png|jpe?g|svg)$/)
 );

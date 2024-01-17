@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import { Playfair_Display } from "next/font/google";
-
+import { usePathname } from 'next/navigation'
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import SideNav from "./components/SideNav/SideNav";

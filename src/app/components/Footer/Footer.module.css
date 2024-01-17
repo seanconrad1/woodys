@@ -1,6 +1,5 @@
 .footerContainer{
 	height: 400px;
-	margin-top: 79px;
 	background-color: var(--purple);
 	display: flex;
 	flex-direction: column;
