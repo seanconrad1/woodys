@@ -29,7 +29,7 @@ const TopBar = () => {
         ></Image>
       </a>
 
-      {windowWidth < 768 ? null : (
+      {windowWidth < 769 ? null : (
         <div className={`${styles.bars} ${avenirFont.className}`}>
           <div className={`${styles.bar} ${styles.bar1}`}>
             <a href="/about" className={styles.bar1Item}>

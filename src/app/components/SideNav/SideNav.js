@@ -30,7 +30,7 @@ const SideNav = () => {
 
   // Mobile
 
-  if (windowWidth < 768) {
+  if (windowWidth < 769) {
     return (
       <>
         <div className={styles.barContainer}>
