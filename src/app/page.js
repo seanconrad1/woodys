@@ -8,7 +8,7 @@ import image1 from "./assets/saladpics/chef-salad.jpg";
 import image2 from "./assets/carouselImages/doordash-profile.jpg";
 
 import soup from "./assets/woodyspicscont2/lemon-chicken-feta.jpg";
-import salad from "./assets/saladpics/sss2.jpg";
+import salad from "./assets/saladpics/fresh-spinach-and-strawberries.jpg";
 import sandwich from "./assets/sandwichpics/festivale.jpg";
 
 export default function Home() {
