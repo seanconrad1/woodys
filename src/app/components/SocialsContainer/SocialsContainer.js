@@ -12,7 +12,6 @@ import { faMapLocationDot } from "@fortawesome/free-solid-svg-icons";
 const SocialsContainer = ({color, size}) => {
   return (
     <div className={styles.menuSocialContainer}>
-      <ul>
         <a
           className={styles.icon}
           target="_blank"
@@ -73,7 +72,6 @@ const SocialsContainer = ({color, size}) => {
             icon={faYelp}
           />
         </a>
-      </ul>
     </div>
   );
 };
