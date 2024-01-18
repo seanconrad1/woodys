@@ -38,7 +38,7 @@ const TopBar = () => {
           </div>
           <div className={`${styles.bar} ${styles.bar2}`}>
             <div className={styles.bar2Item}>
-              1722 S DALE MABRY HWY TAMPA, FL 33629 813-254-2806
+              1722 S DALE MABRY HWY TAMPA, FL 33629 <br/> 813-254-2806
             </div>
             <div className={styles.orderButtons}>
               <a

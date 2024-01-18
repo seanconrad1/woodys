@@ -44,6 +44,8 @@
 .bar2Item {
   font-size: 1.5em;
   color: white;
+	text-align: right;
+	margin-right: 12px;
 }
 
 .brandImageLink {
