@@ -1,9 +1,6 @@
 import React from "react";
 import styles from "./Blurb2.module.css";
 import Image from "next/image";
-import salad from "../../assets/saladpics/sss2.jpg";
-import soup from "../../assets/woodyspicscont2/lemon-chicken-feta.jpg";
-import sandwich from "../../assets/sandwichpics/festivale.jpg";
 
 const Blurb2 = ({
   soup,

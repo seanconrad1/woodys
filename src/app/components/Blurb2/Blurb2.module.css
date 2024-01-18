@@ -1,8 +1,7 @@
 .blurbContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
   width: 100%;
   padding: 100px 1rem;
   margin: 0 auto;
@@ -15,8 +14,16 @@
 .imageList {
   display: flex;
   flex-direction: row;
-  gap: 120px;
+	justify-content: space-between;
+	width: 1200px;
 }
+
+.blurbTextContainer {
+	display: flex;
+	align-items: center;
+	flex-direction: column
+}
+
 
 .blurbImage {
   width: 280px;
@@ -24,12 +31,9 @@
   object-fit: cover;
   border-radius: 0.5rem;
   transition: all 0.2s ease-in-out;
-	margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
-.blurbTextContainer {
-  max-width: 300px;
-}
 
 .blurbHeader {
   font-size: 2rem;
@@ -43,4 +47,60 @@
   font-weight: 400;
   line-height: 1.5;
   margin-bottom: 1rem;
+	max-width: 300px;
+}
+
+@media screen and (max-width: 967px) {
+	.blurbContainer {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		width: 100%;
+		padding: 50px 1rem;
+		margin: 0 auto;
+		text-align: center;
+		background-color: #fff;
+		box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+		transition: all 0.2s ease-in-out;
+	}
+	
+	.imageList {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 1200px;
+		gap: 24px;
+	}
+	
+	.blurbTextContainer {
+		display: flex;
+		align-items: center;
+		flex-direction: column
+	}
+	
+	
+	.blurbImage {
+		width: 280px;
+		object-fit: cover;
+		border-radius: 0.5rem;
+		transition: all 0.2s ease-in-out;
+		margin-bottom: 24px;
+	}
+	
+	
+	.blurbHeader {
+		font-size: 2rem;
+		font-weight: 700;
+		line-height: 1.5;
+		margin-bottom: 1rem;
+	}
+	
+	.blurb {
+    font-size: 1rem;
+		font-weight: 400;
+		line-height: 1.5;
+		margin-bottom: 1rem;
+		max-width: 300px;
+	}
+	
 }
