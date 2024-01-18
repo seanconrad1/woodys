@@ -1,24 +1,28 @@
 "use client";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./TopBar.module.css";
 import brandWhite from "../../assets/woodys_white.jpeg";
 import brandText from "../../assets/brand2.jpeg";
 import Image from "next/image";
 import localFont from "next/font/local";
-import { useWindowSize } from "@react-hook/window-size";
+import useWindowDimensions from '../../../hooks/useWindowDimensions';
 
 const avenirFont = localFont({ src: "../../assets/fonts/avenir_next.woff2" });
 
 const TopBar = () => {
-  const [windowWidth] = useWindowSize();
-  console.log(windowWidth < 1100 ? brandText : brandWhite);
+	const { windowWidth, windowHeight } = useWindowDimensions();
+
+
+
   const pickupLink =
     "https://ordering.chownow.com/order/6077/locations?add_cn_ordering_class=true";
   const deliveryLink =
     "https://www.ubereats.com/store/woodys-famous-salads-south-tampa/bv6aTsx2Rm6xnWPw13gSbg?diningMode=DELIVERY&pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMjQ1OTIlMjBTJTIwVHdpbmxlYWYlMjBEciUyMiUyQyUyMnJlZmVyZW5jZSUyMiUzQSUyMmhlcmUlM0FhZiUzQXN0cmVldHNlY3Rpb24lM0FWNG1RM2tmbTl0RmplSGNnMGlpR2hDJTNBQ2djSUJDQzUtdk1rRUFFYUJEUTFPVEklMjIlMkMlMjJyZWZlcmVuY2VUeXBlJTIyJTNBJTIyaGVyZV9wbGFjZXMlMjIlMkMlMjJsYXRpdHVkZSUyMiUzQTMzLjI2Njg2JTJDJTIybG9uZ2l0dWRlJTIyJTNBLTExMS43NzIxNCU3RA%3D%3D";
 
+
   return (
     <div className={styles.topBarContainer}>
+
       <a href="/" className={styles.brandImageLink}>
         <Image
           width={"300px"}
@@ -28,6 +32,7 @@ const TopBar = () => {
           className={styles.brandImage}
         ></Image>
       </a>
+
 
       {windowWidth < 768 ? null : (
         <div className={`${styles.bars} ${avenirFont.className}`}>
