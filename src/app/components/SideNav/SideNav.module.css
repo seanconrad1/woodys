@@ -55,7 +55,7 @@
 		border-top: 1px solid black;
 		height: 100%;
 		justify-content: space-between;
-		/* padding: 0 1rem; */
+		padding: 0 0 0 8px;
 	}
 
 	.button{
@@ -67,7 +67,6 @@
 		text-decoration: none;
 		cursor: pointer;
 		display: flex;
-		flex-direction: column;
 		align-items: center;
 		border:none;
 		flex-direction: column;
@@ -90,7 +89,6 @@
 		font-weight: 400;
 		text-transform: uppercase;
 		letter-spacing: 1px;
-		margin-bottom: 5px;
 		color: black;
 	}
 	.button:hover{
