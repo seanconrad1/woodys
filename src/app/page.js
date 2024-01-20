@@ -1,15 +1,14 @@
 "use client";
-import styles from "./page.module.css";
-import ImageCrossfader from "./components/ImageCrossfader/ImageCrossfader";
-import Blurb from "./components/Blurb/Blurb";
-import Blurb2 from "./components/Blurb2/Blurb2";
-import SideNav from "./components/SideNav/SideNav";
-import image1 from "./assets/saladpics/chef-salad.jpg";
 import image2 from "./assets/carouselImages/doordash-profile.jpg";
-
-import soup from "./assets/woodyspicscont2/lemon-chicken-feta.jpg";
+import image1 from "./assets/saladpics/chef-salad.jpg";
+import soup from "./assets/carouselImages/lemon-chicken-feta.jpg";
 import salad from "./assets/saladpics/fresh-spinach-and-strawberries.jpg";
 import sandwich from "./assets/sandwichpics/festivale.jpg";
+import Blurb from "./components/Blurb/Blurb";
+import Blurb2 from "./components/Blurb2/Blurb2";
+import ImageCrossfader from "./components/ImageCrossfader/ImageCrossfader";
+import SideNav from "./components/SideNav/SideNav";
+import styles from "./page.module.css";
 
 export default function Home() {
   return (
@@ -23,7 +22,7 @@ export default function Home() {
         backgroundColor={"#F2F2F5"}
         blurbHeader={"COME SEE US FOR LUNCH"}
         blurb={
-          "We provide farm fresh fruits and vegetables from our local farmer's market. They are the base of all our creations at Woody\'s.  Add in Frontier's organic herbs \& spices, Boar\'s Head provisions and you have an ideal option for your dining and catering portfolio!"
+          "We provide farm fresh fruits and vegetables from our local farmer's market. They are the base of all our creations at Woody's.  Add in Frontier's organic herbs & spices, Boar's Head provisions and you have an ideal option for your dining and catering portfolio!"
         }
       />
       <Blurb
@@ -47,7 +46,7 @@ export default function Home() {
           "​​Our Salads have long been a staple in South Tampa beginning with the original Famous Greek Salad. "
         }
         blurb3={
-          "Our Sandwiches are made with Boar\'s Head Provisons.  We've been a proud partners of the Boar\'s Head family for over 30 years! "
+          "Our Sandwiches are made with Boar's Head Provisons.  We've been a proud partners of the Boar's Head family for over 30 years! "
         }
       />
     </main>
