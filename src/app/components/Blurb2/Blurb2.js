@@ -11,19 +11,39 @@ const Blurb2 = ({
   blurb2,
   blurb3,
 }) => {
+
   return (
     <div style={{ backgroundColor }} className={styles.blurbContainer}>
       <div className={styles.imageList}>
         <div className={styles.blurbTextContainer}>
-          <Image src={soup} alt={""} className={styles.blurbImage} />
+          <Image
+            width={280}
+            height={280}
+            src={salad?.replace("//", "https://")}
+            alt={""}
+            className={styles.blurbImage}
+          />
           <div className={styles.blurb}>{blurb1}</div>
         </div>
         <div className={styles.blurbTextContainer}>
-          <Image src={salad} alt={""} className={styles.blurbImage} />
+          <Image
+            width={280}
+            height={280}
+
+            src={soup?.replace("//", "https://")}
+            alt={""}
+            className={styles.blurbImage}
+          />
           <div className={styles.blurb}>{blurb2}</div>
         </div>
         <div className={styles.blurbTextContainer}>
-          <Image src={sandwich} alt={""} className={styles.blurbImage} />
+          <Image
+            width={280}
+            height={280}
+            src={sandwich?.replace("//", "https://")}
+            alt={""}
+            className={styles.blurbImage}
+          />
           <div className={styles.blurb}>{blurb3}</div>
         </div>
       </div>

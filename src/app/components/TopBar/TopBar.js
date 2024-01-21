@@ -6,11 +6,21 @@ import brandText from "../../assets/brand2.jpeg";
 import Image from "next/image";
 import localFont from "next/font/local";
 import useWindowDimensions from "../../../hooks/useWindowDimensions";
+import { getAddressAndPhone } from "../../../utils/api";
 
 const avenirFont = localFont({ src: "../../assets/fonts/avenir_next.woff2" });
 
 const TopBar = () => {
   const { windowWidth } = useWindowDimensions();
+  const [addressAndPhone, setAddressAndPhone] = useState("");
+
+  useEffect(() => {
+    async function fetchMyAPI() {
+      const result = await getAddressAndPhone();
+      setAddressAndPhone(result);
+    }
+    fetchMyAPI();
+  }, []);
 
   const pickupLink =
     "https://ordering.chownow.com/order/6077/locations?add_cn_ordering_class=true";
@@ -38,7 +48,7 @@ const TopBar = () => {
           </div>
           <div className={`${styles.bar} ${styles.bar2}`}>
             <div className={styles.bar2Item}>
-              1722 S DALE MABRY HWY TAMPA, FL 33629 <br/> 813-254-2806
+              {addressAndPhone.address} <br /> {addressAndPhone.phoneNumber}
             </div>
             <div className={styles.orderButtons}>
               <a

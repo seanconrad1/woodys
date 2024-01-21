@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./ImageCrossfader.module.css";
 import { removeDashes } from "@/utils/utils";
-import { getCarouselImages } from "../../../utils/api";
+import { getCarouselImages } from "@/utils/api";
 
 const ImageCrossfader = () => {
   const [loading, setLoading] = useState(true);
@@ -18,7 +18,6 @@ const ImageCrossfader = () => {
     fetchMyAPI();
   }, []);
 
-  console.log("What is my images array", imagesArr);
   const imagesLength = imagesArr.length;
 
   useEffect(() => {
@@ -28,7 +27,7 @@ const ImageCrossfader = () => {
     let curImage = 0;
     let numImages = imagesLength;
 
-    function nextImage() {
+  function nextImage() {
       let imageElement;
       // remove show class from current image
       imageElement = document.getElementById("slideimg" + curImage);
@@ -76,7 +75,7 @@ const ImageCrossfader = () => {
           >
             <Image
               layout="fill"
-              objectFit="cover" // Optional: use this if you want to maintain the image's aspect ratio
+              objectFit="cover"
               className={`${styles.image} `}
               src={image.fields.file.url.replace("//", "https://")}
               alt={image.fields.title}

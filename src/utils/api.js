@@ -24,6 +24,56 @@ export async function getCarouselImages() {
   } catch (error) {
     throw new Error(`Failed to fetch data`);
   }
-  // console.log(res.fields.images);
   return res.fields.images;
+}
+
+export async function getAddressAndPhone() {
+  let res;
+  try {
+    res = await client.getEntry("2CcCKNEoGU9R2Hvkb6bL4");
+  } catch (error) {
+    throw new Error(`Failed to fetch data`);
+  }
+  return res.fields;
+}
+
+export async function getBlurbs() {
+  const contentType = "blurb";
+  let res;
+  try {
+    res = await client.getEntries({
+      content_type: contentType,
+      include: 2, // The number of nested CMS entries to include
+    });
+  } catch (error) {
+    throw new Error(`Failed to fetch data`);
+  }
+  return res.items;
+}
+
+
+export async function getFoodCards() {
+  const contentType = "foodCard";
+  let res;
+  try {
+    res = await client.getEntries({
+      content_type: contentType,
+      include: 3, // The number of nested CMS entries to include
+    });
+  } catch (error) {
+    throw new Error(`Failed to fetch data`);
+  }
+  return res.items;
+}
+
+
+export async function getAboutUs() {
+  let res;
+  try {
+    res = await client.getEntry("2NHDnekvClmuKVFjGQZxYI");
+  } catch (error) {
+    throw new Error(`Failed to fetch data`);
+  }
+
+  return res.fields
 }

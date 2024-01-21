@@ -1,16 +1,28 @@
 "use client";
-import image2 from "./assets/carouselImages/doordash-profile.jpg";
-import image1 from "./assets/saladpics/chef-salad.jpg";
-import soup from "./assets/carouselImages/lemon-chicken-feta.jpg";
-import salad from "./assets/saladpics/fresh-spinach-and-strawberries.jpg";
-import sandwich from "./assets/sandwichpics/festivale.jpg";
+import React, { useState, useEffect } from "react";
 import Blurb from "./components/Blurb/Blurb";
 import Blurb2 from "./components/Blurb2/Blurb2";
 import ImageCrossfader from "./components/ImageCrossfader/ImageCrossfader";
 import SideNav from "./components/SideNav/SideNav";
 import styles from "./page.module.css";
+import { getBlurbs, getFoodCards } from "@/utils/api";
 
 export default function Home() {
+  const [loading, setLoading] = useState(true);
+  const [blurbs, setBlurbs] = useState([]);
+  const [foodCards, setFoodCards] = useState([]);
+
+  useEffect(() => {
+    async function fetchMyAPI() {
+      const blurbResults = await getBlurbs();
+      const foodCardResults = await getFoodCards();
+      setBlurbs(blurbResults);
+      setFoodCards(foodCardResults);
+      setLoading(false);
+    }
+    fetchMyAPI();
+  }, []);
+
   return (
     <main className={styles.main}>
       <div className={styles.navAndImageCrossFade}>
@@ -18,36 +30,26 @@ export default function Home() {
         <ImageCrossfader />
       </div>
       <Blurb
-        image={image1}
+        image={blurbs[0]?.fields.foodImage.fields.file.url}
         backgroundColor={"#F2F2F5"}
-        blurbHeader={"COME SEE US FOR LUNCH"}
-        blurb={
-          "We provide farm fresh fruits and vegetables from our local farmer's market. They are the base of all our creations at Woody's.  Add in Frontier's organic herbs & spices, Boar's Head provisions and you have an ideal option for your dining and catering portfolio!"
-        }
+        blurbHeader={blurbs[0]?.fields.blurbHeader}
+        blurb={blurbs[0]?.fields.blurbDescription.content[0].content[0].value}
       />
       <Blurb
         opposite={true}
-        image={image2}
+        image={blurbs[1]?.fields.foodImage.fields.file.url}
         backgroundColor={"white"}
-        blurbHeader={"MADE FROM SCRATCH"}
-        blurb={
-          "We make almost everything from scratch here at Woodys. All are Soups are made every morning! We make most of all our dressings in house, including our Blue Cheese! That FAMOUS POTATO SALAD is made fresh in house daily also!"
-        }
+        blurbHeader={blurbs[1]?.fields.blurbHeader}
+        blurb={blurbs[1]?.fields.blurbDescription.content[0].content[0].value}
       />
       <Blurb2
-        soup={soup}
-        salad={salad}
-        sandwich={sandwich}
+        salad={foodCards[1]?.fields.foodImage.fields.file.url}
+        soup={foodCards[0]?.fields.foodImage.fields.file.url}
+        sandwich={foodCards[2]?.fields.foodImage.fields.file.url}
         backgroundColor={"#F2F2F5"}
-        blurb1={
-          "Our Soups are gaining in popularity because ALL of our soups begin with a recipe, are water-based and DO NOT CONTAIN any flour, cornstarch, preservatives or MSG."
-        }
-        blurb2={
-          "​​Our Salads have long been a staple in South Tampa beginning with the original Famous Greek Salad. "
-        }
-        blurb3={
-          "Our Sandwiches are made with Boar's Head Provisons.  We've been a proud partners of the Boar's Head family for over 30 years! "
-        }
+        blurb1={foodCards[1]?.fields.description.content[0].content[0].value}
+        blurb2={foodCards[0]?.fields.description.content[0].content[0].value}
+        blurb3={foodCards[2]?.fields.description.content[0].content[0].value}
       />
     </main>
   );
