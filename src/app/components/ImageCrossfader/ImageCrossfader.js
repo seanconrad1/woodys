@@ -1,17 +1,25 @@
-import React, { useEffect, useState, useRef } from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./ImageCrossfader.module.css";
-import {
-  importAssetsFromFolder,
-  removeExtension,
-  removeExtAndDashes,
-} from "@/utils/utils";
-const imagesArr = importAssetsFromFolder(
-  require.context("../../assets/carouselImages", false, /\.(png|jpe?g|svg)$/)
-);
+import { removeDashes } from "@/utils/utils";
+import { getCarouselImages } from "../../../utils/api";
 
 const ImageCrossfader = () => {
-  const imagesLength = Object.keys(imagesArr).length;
+  const [loading, setLoading] = useState(true);
+  const [imagesArr, setImagesArr] = useState([]);
+
+  useEffect(() => {
+    async function fetchMyAPI() {
+      const result = await getCarouselImages();
+      setImagesArr(result);
+      setLoading(false);
+    }
+    fetchMyAPI();
+  }, []);
+
+  console.log("What is my images array", imagesArr);
+  const imagesLength = imagesArr.length;
 
   useEffect(() => {
     let timer = setInterval(() => {
@@ -57,7 +65,7 @@ const ImageCrossfader = () => {
 
   return (
     <div className={styles.crossfaderContainer}>
-      {Object.keys(imagesArr).map((image, idx) => {
+      {imagesArr.map((image, idx) => {
         return (
           <div
             key={idx}
@@ -67,12 +75,14 @@ const ImageCrossfader = () => {
             }`}
           >
             <Image
+              layout="fill"
+              objectFit="cover" // Optional: use this if you want to maintain the image's aspect ratio
               className={`${styles.image} `}
-              src={imagesArr[image].default}
-              alt={removeExtension(image)}
+              src={image.fields.file.url.replace("//", "https://")}
+              alt={image.fields.title}
             />
-            <div className={`${styles.menuItemName}`}>{removeExtAndDashes(image)}</div>
-						<div className={styles.gradient}></div>
+            <div className={`${styles.menuItemName}`}>{removeDashes(image.fields.title)}</div>
+            <div className={styles.gradient}></div>
           </div>
         );
       })}

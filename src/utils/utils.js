@@ -1,6 +1,7 @@
 // imports all assets from a folder and returns asset paths keyed to an object
 // require.context() must be passed in
 // example: importAssetsFromFolder(require.context('../../assets/img', false, /\.(png|jpe?g|svg)$/))
+
 export const importAssetsFromFolder = (r) => {
   const images = {};
   r.keys().forEach((item) => {
@@ -20,6 +21,7 @@ export function removeExtension(filename) {
 
 // removes file extension from filename
 export function removeExtAndDashes(filename) {
+  console.log(filename);
   // Define a regular expression pattern to match the extension
   var pattern = /\.[^.]+$/;
   // Use replace() to replace the matched extension with an empty string
@@ -27,3 +29,10 @@ export function removeExtAndDashes(filename) {
   var final = filenameWithoutExtension.replaceAll("-", " ");
   return final;
 }
+
+export function removeDashes(filename) {
+  var final = filename.replaceAll("-", " ");
+  return final;
+}
+
+
