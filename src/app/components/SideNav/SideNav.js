@@ -66,9 +66,9 @@ const SideNav = () => {
             className={`${styles.sideNav} `}
           >
             <ul className={styles.sideNavMenu}>
-              <li className={`${styles.listItem} ${styles.location}`}>
-                <div>TAMPA</div>
-              </li>
+              {/* <li className={`${styles.listItem} ${styles.location}`}>
+                <div><i>TAMPA</i></div>
+              </li> */}
               <li className={styles.listItem}>
                 <a href="/" className={styles.listItemLink}>
                   Home
@@ -109,9 +109,9 @@ const SideNav = () => {
       <div className={`${styles.sideNavContainer}`}>
         <nav className={`${styles.sideNav}`}>
           <ul className={styles.sideNavMenu}>
-            <li className={`${styles.listItem} ${styles.location}`}>
-              <div>TAMPA</div>
-            </li>
+            {/* <li className={`${styles.listItem} ${styles.location}`}>
+            <div>TAMPA, FL</div>
+            </li> */}
             <li className={styles.listItem}>
               <a href="/" className={styles.listItemLink}>
                 Home

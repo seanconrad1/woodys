@@ -74,6 +74,5 @@ export async function getAboutUs() {
   } catch (error) {
     throw new Error(`Failed to fetch data`);
   }
-
   return res.fields
 }

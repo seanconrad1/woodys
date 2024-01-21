@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInstagramSquare,
   faFacebookSquare,
-  faTwitterSquare,
+  faSquareXTwitter,
   faYelp,
 } from "@fortawesome/free-brands-svg-icons";
 import { faMapLocationDot } from "@fortawesome/free-solid-svg-icons";
@@ -46,7 +46,7 @@ const SocialsContainer = ({color, size}) => {
             className={styles.faIcon}
             color={color}
             size={size}
-            icon={faTwitterSquare}
+            icon={faSquareXTwitter}
           />
         </a>
         <a

@@ -6,7 +6,7 @@
 	flex-direction: column;
 	padding-left: 55px;
 	padding-right: 55px;
-	margin: 10rem auto;
+	margin: 5rem auto 5rem auto;
 }
 
 .aboutUsHeader{
@@ -14,11 +14,11 @@
 }
 
 .about{
-	max-width: 1200px;
+	max-width: 800px;
 	padding: 40px 0;
-	font-size: 16px;
+	font-size: 18px;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 24px;
+	line-height: 26px;
 	color: #585858;
 }
