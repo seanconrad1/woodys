@@ -22,3 +22,8 @@
 	line-height: 26px;
 	color: #585858;
 }
+
+.woodyImage{
+	width: 300px;
+	object-fit: contain;
+}
