@@ -1,13 +1,14 @@
 import React from "react";
 import SideNav from "../components/SideNav/SideNav";
 import styles from "./soups.module.css";
-import { getSoups } from "../../utils/api";
+import { getSoups, getSoupPageImage } from "../../utils/api";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import moment from "moment";
 import Image from "next/image";
 import soup1 from "../assets/woodyspicscont2/cajun-chicken-pasta.jpg";
 
 const items = await getSoups();
+const { image } = await getSoupPageImage();
 
 // Sorts the items by date created.
 items.sort((a, b) => {
@@ -76,7 +77,7 @@ const page = async () => {
           <Image
             className={styles.image}
             alt={""}
-            src={soup1}
+            src={image?.fields.file.url.replace("//", "https://")}
             width={500}
             height={500}
           />

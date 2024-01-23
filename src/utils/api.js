@@ -20,6 +20,20 @@ export async function getSoups() {
   return res.items;
 }
 
+export async function getSoupPageImage() {
+  const contentType = "soupsPageImage";
+  let res;
+  try {
+    res = await client.getEntries({
+      content_type: contentType,
+      include: 1, // The number of nested CMS entries to include
+    });
+  } catch (error) {
+    throw new Error(`Failed to fetch data`);
+  }
+  return res.items[0].fields
+}
+
 export async function getCarouselImages() {
   let res;
   try {
