@@ -104,6 +104,10 @@
   margin-bottom: 24px;
 }
 
+.middle{
+  display: none;
+}
+
 @media screen and (max-width: 820px) {
   .soupAndImage{
     flex-direction: column;
@@ -120,6 +124,12 @@
   .image{
     align-self: unset;
     margin-top: unset;
+  }
+  .bottom{
+    display: none;
+  }
+  .middle{
+    display: flex;
   }
 }
 

@@ -74,6 +74,11 @@ const page = async () => {
               );
             })}
           </div>
+          <div className={`${styles.allergyGroup} ${styles.middle}`}>
+            <div>*GF = Gluten free</div>
+            <div>DF = Dairy free</div>
+            <div>V = Vegan</div>
+          </div>
           <Image
             className={styles.image}
             alt={""}
@@ -82,7 +87,7 @@ const page = async () => {
             height={500}
           />
         </div>
-        <div className={styles.allergyGroup}>
+        <div className={`${styles.allergyGroup} ${styles.bottom}`}>
           <div>*GF = Gluten free</div>
           <div>DF = Dairy free</div>
           <div>V = Vegan</div>
