@@ -9,7 +9,8 @@ import soup1 from "../assets/woodyspicscont2/cajun-chicken-pasta.jpg";
 
 const items = await getSoups();
 
-const orderedItems = items.sort((a, b) => {
+// Sorts the items by date created.
+items.sort((a, b) => {
   if (moment(a.sys.createdAt).isAfter(b.sys.createdAt)) {
     return 1;
   } else {
@@ -72,7 +73,18 @@ const page = async () => {
               );
             })}
           </div>
-            <Image className={styles.image} alt={""} src={soup1} width={500} height={500} />
+          <Image
+            className={styles.image}
+            alt={""}
+            src={soup1}
+            width={500}
+            height={500}
+          />
+        </div>
+        <div className={styles.allergyGroup}>
+          <div>*GF = Gluten free</div>
+          <div>DF = Dairy free</div>
+          <div>V = Vegan</div>
         </div>
       </div>
     </div>

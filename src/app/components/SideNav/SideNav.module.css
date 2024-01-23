@@ -1,10 +1,11 @@
 .sideNavContainer {
   position: relative;
   background-color: white;
-  max-width: 300px;
+  width: 300px;
   padding-left: 3rem !important;
   padding-right: 1rem !important;
   padding-top: 4rem !important;
+
 }
 
 .sideNavMenu {
@@ -56,6 +57,7 @@
 		height: 100%;
 		justify-content: space-between;
 		padding: 0 0 0 8px;
+		background-color: white;
 	}
 
 	.button{

@@ -35,6 +35,8 @@
 .subHeader{
   display: flex;
   font-size: 1.4rem;
+  padding: 0 20px;
+  text-align: center;
 }
 
 
@@ -77,6 +79,7 @@
   justify-content: space-around;
   align-items: center;
   width: 100%;
+  padding: 0 20px;
 }
 
 .image{
@@ -86,4 +89,45 @@
   border-radius: 0.5rem;
   transition: all 0.2s ease-in-out;
   margin-bottom: 24px;
+
+  align-self: flex-start;
+  margin-top: 70px;
 }
+
+.allergyGroup{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+@media screen and (max-width: 820px) {
+  .soupAndImage{
+    flex-direction: column;
+  }
+  .subHeader{
+    padding: 0 40px;
+  }
+
+  .soupsContainer{
+    margin-bottom: 40px;
+    padding-top: unset;
+    margin-top: 40px;
+  }
+  .image{
+    align-self: unset;
+    margin-top: unset;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .pageContainer{
+    flex-direction: column
+  }
+}
+
+
+
