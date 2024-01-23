@@ -19,7 +19,7 @@ export default async function About() {
         objectFit="contain"
         className={styles.woodyImage}
         src={woodyPhoto.fields.file.url.replace("//", "https://")}
-        alt="Pohot of Woody Gilbert in flight suit, 1945 Manilla"
+        alt="Photo of Woody Gilbert in flight suit, 1945 Manilla"
       />
     </div>
   );

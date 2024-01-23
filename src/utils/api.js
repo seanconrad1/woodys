@@ -7,14 +7,17 @@ const client = createClient({
 });
 
 export async function getSoups() {
+  const contentType = "weeklySoups";
   let res;
   try {
-    res = await client.getEntry("6gvl2wdvgjmtdf0p9En36F");
+    res = await client.getEntries({
+      content_type: contentType,
+      include: 4, // The number of nested CMS entries to include
+    });
   } catch (error) {
     throw new Error(`Failed to fetch data`);
   }
-
-  return res.fields;
+  return res.items;
 }
 
 export async function getCarouselImages() {

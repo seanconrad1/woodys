@@ -66,28 +66,36 @@ const SideNav = () => {
             className={`${styles.sideNav} `}
           >
             <ul className={styles.sideNavMenu}>
-              {/* <li className={`${styles.listItem} ${styles.location}`}>
-                <div><i>TAMPA</i></div>
-              </li> */}
               <li className={styles.listItem}>
                 <a href="/" className={styles.listItemLink}>
                   Home
                 </a>
               </li>
               <li className={styles.listItem}>
-                <a href="/menu-catering" className={styles.listItemLink}>
-                  Menu &amp; Catering
+                <a href="/menu" className={styles.listItemLink}>
+                  Menu
                 </a>
               </li>
               <li className={styles.listItem}>
-                <a href="/weekly-soups" className={styles.listItemLink}>
-                  Weekly Soups
+                <a href="/catering" className={styles.listItemLink}>
+                  Catering
+                </a>
+              </li>
+              <li className={styles.listItem}>
+                <a href="/soups" className={styles.listItemLink}>
+                  Soups
                 </a>
               </li>
 
               <li className={styles.listItem}>
                 <a href="/gallery" className={styles.listItemLink}>
                   Gallery
+                </a>
+              </li>
+
+              <li className={styles.listItem}>
+                <a href="/about" className={styles.listItemLink}>
+                  About Us
                 </a>
               </li>
 
@@ -118,19 +126,30 @@ const SideNav = () => {
               </a>
             </li>
             <li className={styles.listItem}>
-              <a href="/menu-catering" className={styles.listItemLink}>
-                Menu &amp; Catering
+              <a href="/menu" className={styles.listItemLink}>
+                Menu
               </a>
             </li>
             <li className={styles.listItem}>
-              <a href="/weekly-soups" className={styles.listItemLink}>
-                Weekly Soups
+              <a href="/catering" className={styles.listItemLink}>
+                Catering
+              </a>
+            </li>
+            <li className={styles.listItem}>
+              <a href="/soups" className={styles.listItemLink}>
+                Soups
               </a>
             </li>
 
             <li className={styles.listItem}>
               <a href="/gallery" className={styles.listItemLink}>
                 Gallery
+              </a>
+            </li>
+
+            <li className={styles.listItem}>
+              <a href="/about" className={styles.listItemLink}>
+                About Us
               </a>
             </li>
           </ul>
