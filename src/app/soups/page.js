@@ -5,7 +5,6 @@ import { getSoups, getSoupPageImage } from "../../utils/api";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import moment from "moment";
 import Image from "next/image";
-import soup1 from "../assets/woodyspicscont2/cajun-chicken-pasta.jpg";
 
 const items = await getSoups();
 const { image } = await getSoupPageImage();

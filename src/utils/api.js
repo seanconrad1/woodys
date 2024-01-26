@@ -60,7 +60,7 @@ export async function getBlurbs() {
   try {
     res = await client.getEntries({
       content_type: contentType,
-      include: 2, // The number of nested CMS entries to include
+      include: 3, // The number of nested CMS entries to include
     });
   } catch (error) {
     throw new Error(`Failed to fetch data`);

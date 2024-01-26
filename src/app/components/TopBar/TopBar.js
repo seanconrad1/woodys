@@ -33,7 +33,7 @@ const TopBar = () => {
         <Image
           width={"300px"}
           height={"0px"}
-          src={windowWidth < 1100 ? brandText : brandWhite}
+          src={windowWidth < 769 ? brandText : brandWhite}
           alt="Woodys Restaurant"
           className={styles.brandImage}
         ></Image>
@@ -48,7 +48,8 @@ const TopBar = () => {
           </div>
           <div className={`${styles.bar} ${styles.bar2}`}>
             <div className={styles.bar2Item}>
-              {addressAndPhone.address} <br /> {addressAndPhone.phoneNumber}
+              <div className={styles.address}>{addressAndPhone.address}</div>  
+              <div className={styles.phone}>{addressAndPhone.phoneNumber}</div>
             </div>
             <div className={styles.orderButtons}>
               <a

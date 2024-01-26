@@ -85,7 +85,7 @@
 }
 
 
-@media screen and (max-width: 1100px)  {
+@media screen and (max-width: 769px)  {
 	.topBarContainer {
 		--barHeight: 100px;
 		width: 100%;
@@ -115,6 +115,15 @@
 		position: relative;
 		object-fit: contain;
 	}
+
+	/* I'm here */
+	.bar2Item {
+		font-size: 1.5em;
+		color: white;
+		text-align: right;
+		margin-right: 12px;
+	}
+	
 }
 
 @media screen and (max-width: 768px)  {
