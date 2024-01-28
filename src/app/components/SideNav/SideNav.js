@@ -76,11 +76,7 @@ const SideNav = () => {
                   Menu
                 </a>
               </li>
-              <li className={styles.listItem}>
-                <a href="/catering" className={styles.listItemLink}>
-                  Catering
-                </a>
-              </li>
+
               <li className={styles.listItem}>
                 <a href="/soups" className={styles.listItemLink}>
                   Soups
@@ -88,8 +84,8 @@ const SideNav = () => {
               </li>
 
               <li className={styles.listItem}>
-                <a href="/gallery" className={styles.listItemLink}>
-                  Gallery
+                <a href="/catering" className={styles.listItemLink}>
+                  Catering
                 </a>
               </li>
 
@@ -117,24 +113,18 @@ const SideNav = () => {
       <div className={`${styles.sideNavContainer}`}>
         <nav className={`${styles.sideNav}`}>
           <ul className={styles.sideNavMenu}>
-            {/* <li className={`${styles.listItem} ${styles.location}`}>
-            <div>TAMPA, FL</div>
-            </li> */}
             <li className={styles.listItem}>
               <a href="/" className={styles.listItemLink}>
                 Home
               </a>
             </li>
+
             <li className={styles.listItem}>
               <a href="/menu" className={styles.listItemLink}>
                 Menu
               </a>
             </li>
-            <li className={styles.listItem}>
-              <a href="/catering" className={styles.listItemLink}>
-                Catering
-              </a>
-            </li>
+
             <li className={styles.listItem}>
               <a href="/soups" className={styles.listItemLink}>
                 Soups
@@ -142,8 +132,8 @@ const SideNav = () => {
             </li>
 
             <li className={styles.listItem}>
-              <a href="/gallery" className={styles.listItemLink}>
-                Gallery
+              <a href="/catering" className={styles.listItemLink}>
+                Catering
               </a>
             </li>
 

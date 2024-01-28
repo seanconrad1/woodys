@@ -1,12 +1,16 @@
 .pageContainer {
-  margin-left: 120px;
-  margin-top: 40px;
-  margin-right: 120px;
   margin-bottom: 80px;
+  display: flex;
+  flex-direction: row;
 }
 
 .categoryContainer{
   margin-top: 48px;
+  margin-right: 120px;
+  margin-left: 120px;
+}
+
+.flex{
 }
 
 .menuGrid {
@@ -14,9 +18,35 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   display: grid;
+  flex-direction: column;
 }
 
 .header {
   margin-bottom: 16px;
   font-weight: 500;
+}
+
+
+@media screen and (max-width: 1280px) {
+
+
+
+  .categoryContainer{
+    margin-top: 48px;
+    margin-right: 40px;
+    margin-left: 40px;
+  }
+
+  .menuGrid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .pageContainer {
+    margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+  }
 }

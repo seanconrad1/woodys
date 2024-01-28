@@ -35,25 +35,27 @@ export function removeDashes(filename) {
   return final;
 }
 
-
-
 export const returnLineBreaks = (text) => {
-  if(text.includes('<br/>')) {
+  if (text.includes("<br/>")) {
     // Map through each segment of text around line breaks added:
-    return text.split('<br/>').map((innerText, i) => {
+    return text.split("<br/>").map((innerText, i) => {
       const lineBreakStyle = {
-        display: 'block',
-        minHeight: '24px'
-      }
+        display: "block",
+        minHeight: "24px",
+      };
       // Return a span around each group of text:
       return (
         <span key={i} style={lineBreakStyle}>
           {innerText}
         </span>
-      )
-    })
+      );
+    });
   } else {
     // If there's no line breaks, just return the text as is:
-    return text
+    return text;
   }
-}
+};
+
+export const truncateText = () => {
+  
+};
