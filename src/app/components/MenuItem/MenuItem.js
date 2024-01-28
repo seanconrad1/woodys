@@ -73,16 +73,18 @@ const MenuItem = ({ name, price, description, image }) => {
             {description}
           </div>
         </div>
-        <div className={styles.menuItemImgContainer}>
-          <Image
-            width={250}
-            height={250}
-            objectFit="cover"
-            className={styles.menuItemImg}
-            src={image}
-            alt={name}
-          />
-        </div>
+        {image && (
+          <div className={styles.menuItemImgContainer}>
+            <Image
+              width={250}
+              height={250}
+              objectFit="cover"
+              className={styles.menuItemImg}
+              src={image}
+              alt={name}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
