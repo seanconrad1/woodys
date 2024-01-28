@@ -8,23 +8,32 @@ const page = async () => {
 
   return (
     <div className={styles.pageContainer}>
-      <h2 className={styles.header}>{items[0].fields.category}</h2>
-      <div className={styles.menuGrid}>
-        {items.map((item, i) => (
-          <MenuItem
-            key={i}
-            name={item.fields.name}
-            price={item.fields.price}
-            image={item?.fields?.image?.fields?.file?.url.replace("//", "https://")}
-            description={item?.fields?.description?.content[0].content[0].value}
-          />
-        ))}
-      </div>
+      {items.map((i) => {
+        return (
+          <div key={i} className={styles.categoryContainer}>
+            <h2 className={styles.header}>{Object.keys(i)[0]}</h2>
+            <div className={styles.menuGrid}>
+              {i[Object.keys(i)].map((item, i) => (
+                <MenuItem
+                  key={i}
+                  name={item.fields.name}
+                  price={item.fields.price}
+                  image={item?.fields?.image?.fields?.file?.url.replace(
+                    "//",
+                    "https://"
+                  )}
+                  description={
+                    item?.fields?.description?.content[0].content[0].value
+                  }
+                />
+              ))}
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };
 
 export default page;
-// ask about tripadvisor account
 
-// 

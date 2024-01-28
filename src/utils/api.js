@@ -1,4 +1,5 @@
 import { createClient } from "contentful";
+import moment from "moment";
 
 const client = createClient({
   accessToken: process.env.CONTENTFUL_DELIVERY_API_KEY,
@@ -103,5 +104,43 @@ export async function getMenuItems() {
     throw new Error(`Failed to fetch data`);
   }
 
-  return res.items;
+  const sort = (array) => {
+    // Sorts the items by date created.
+    return array.sort((a, b) => {
+      if (moment(a.sys.createdAt).isAfter(b.sys.createdAt)) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+  };
+
+  const soups = res.items.filter((item) => item.fields.category === "Soups");
+  const salads = res.items.filter((item) => item.fields.category === "Salads");
+  const sandwiches = res.items.filter(
+    (item) => item.fields.category === "Sandwiches"
+  );
+  // const sides = res.items.filter((item) => item.fields.category === "Sides");
+  // const drinks = res.items.filter((item) => item.fields.category === "Drinks");
+  const catering = res.items.filter(
+    (item) => item.fields.category === "Catering"
+  );
+  const wraps = res.items.filter(
+    (item) => item.fields.category === "Wheat Wraps"
+  );
+
+  sort(soups)
+  sort(salads)
+  sort(sandwiches)
+  sort(catering)
+  sort(wraps)
+
+
+  return [
+    { Salads: salads },
+    { Soups: soups },
+    { Sandwiches: sandwiches },
+    { Wraps: wraps },
+    { Catering: catering },
+  ];
 }
