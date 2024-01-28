@@ -4,8 +4,6 @@
   grid-column: span 2;
 }
 
-
-
 .menuItem {
   border-radius: 12px;
   border: 1px solid #e2e2e2;
@@ -46,9 +44,14 @@
   overflow: hidden;
 }
 
+.menuItemImgContainer {
+  width: 145px;
+  height: 145px;
+}
 
 .menuItemImg {
   width: 145px;
   height: 145px;
   overflow: hidden;
+  object-fit: cover;
 }

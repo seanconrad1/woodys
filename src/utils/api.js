@@ -31,7 +31,7 @@ export async function getSoupPageImage() {
   } catch (error) {
     throw new Error(`Failed to fetch data`);
   }
-  return res.items[0].fields
+  return res.items[0].fields;
 }
 
 export async function getCarouselImages() {
@@ -68,7 +68,6 @@ export async function getBlurbs() {
   return res.items;
 }
 
-
 export async function getFoodCards() {
   const contentType = "foodCard";
   let res;
@@ -83,7 +82,6 @@ export async function getFoodCards() {
   return res.items;
 }
 
-
 export async function getAboutUs() {
   let res;
   try {
@@ -91,5 +89,19 @@ export async function getAboutUs() {
   } catch (error) {
     throw new Error(`Failed to fetch data`);
   }
-  return res.fields
+  return res.fields;
+}
+
+export async function getMenuItems() {
+  let contentType = "menuItem";
+  let res;
+  try {
+    res = await client.getEntries({
+      content_type: contentType,
+    });
+  } catch (error) {
+    throw new Error(`Failed to fetch data`);
+  }
+
+  return res.items;
 }
