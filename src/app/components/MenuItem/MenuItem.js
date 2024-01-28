@@ -2,10 +2,8 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import styles from "./MenuItem.module.css";
-import useScreenSize from "@/hooks/useScreenSize";
 
 const MenuItem = ({ name, price, description, image }) => {
-  const { width } = useScreenSize();
 
   useEffect(() => {
     const BASE_OFFSET_HEIGHT = 48; //2 lines of text
