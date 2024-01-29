@@ -57,7 +57,7 @@ export const returnLineBreaks = (text) => {
 };
 
 export const truncateText = (text) => {
-  const length = 100
+  const length = 45
   if(text?.length > length) {
     return text.substring(0, length) + "...";
   }else{

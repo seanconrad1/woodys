@@ -1,9 +1,9 @@
-import React from "react";
 import styles from "./menu.module.css";
 import MenuItem from "../components/MenuItem/MenuItem";
 import { getMenuItems } from "../../utils/api";
 import SideNav from "../components/SideNav/SideNav";
-const page = async () => {
+
+const Page = async () => {
   const items = await getMenuItems();
 
   return (
@@ -13,13 +13,13 @@ const page = async () => {
         {items.map((i) => {
           return (
             <div key={i} className={styles.categoryContainer}>
-              <h2 className={styles.header}>{Object.keys(i)[0]}</h2>
+              <h2 id={Object.keys(i)[0].toLowerCase()} className={styles.header}>{Object.keys(i)[0]}</h2>
               <div className={styles.menuGrid}>
                 {i[Object.keys(i)].map((item, i) => (
                   <MenuItem
-                    key={i}
-                    name={item.fields.name}
-                    price={item.fields.price}
+                    key={item.fields.name}
+                    name={item?.fields?.name}
+                    price={item?.fields?.price}
                     image={item?.fields?.image?.fields?.file?.url.replace(
                       "//",
                       "https://"
@@ -38,4 +38,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default Page;

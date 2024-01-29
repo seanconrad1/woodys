@@ -102,7 +102,7 @@ const SideNav = () => {
               <li className={styles.address}>
                 1722 S DALE MABRY HWY TAMPA, FL 33629
               </li>
-              <li>813-254-2806</li>
+              <li><a href="tel:813-254-2806">813-254-2806</a></li>
             </ul>
           </nav>
         </div>

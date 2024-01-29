@@ -49,7 +49,7 @@ const TopBar = () => {
           <div className={`${styles.bar} ${styles.bar2}`}>
             <div className={styles.bar2Item}>
               <div className={styles.address}>{addressAndPhone.address}</div>  
-              <div className={styles.phone}>{addressAndPhone.phoneNumber}</div>
+              <a className={styles.phone} href={`tel:${addressAndPhone.phoneNumber}`}>{addressAndPhone.phoneNumber}</a>
             </div>
             <div className={styles.orderButtons}>
               <a

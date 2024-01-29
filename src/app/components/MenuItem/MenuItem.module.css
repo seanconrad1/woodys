@@ -11,6 +11,7 @@
   flex-direction: row;
   overflow: hidden;
   min-height: 145px;
+  object-fit: cover;
 }
 
 .leftSide {

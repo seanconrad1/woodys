@@ -104,8 +104,8 @@ export async function getMenuItems() {
     throw new Error(`Failed to fetch data`);
   }
 
+  // Sorts the items by date created.
   const sort = (array) => {
-    // Sorts the items by date created.
     return array.sort((a, b) => {
       if (moment(a.sys.createdAt).isAfter(b.sys.createdAt)) {
         return 1;
@@ -115,6 +115,7 @@ export async function getMenuItems() {
     });
   };
 
+  // Filters the items by category.
   const soups = res.items.filter((item) => item.fields.category === "Soups");
   const salads = res.items.filter((item) => item.fields.category === "Salads");
   const sandwiches = res.items.filter(
@@ -129,13 +130,13 @@ export async function getMenuItems() {
     (item) => item.fields.category === "Wheat Wraps"
   );
 
-  sort(soups)
-  sort(salads)
-  sort(sandwiches)
-  sort(catering)
-  sort(wraps)
+  sort(soups);
+  sort(salads);
+  sort(sandwiches);
+  sort(catering);
+  sort(wraps);
 
-
+  // Return an array of objects with the category as the key and the items as the value.
   return [
     { Salads: salads },
     { Soups: soups },
@@ -143,4 +144,15 @@ export async function getMenuItems() {
     { Wraps: wraps },
     { Catering: catering },
   ];
+}
+
+
+export async function getCateringInfo() {
+  let res;
+  try {
+    res = await client.getEntry("2NHDnekvClmuKVFjGQZxYI");
+  } catch (error) {
+    throw new Error(`Failed to fetch data`);
+  }
+  return res.fields;
 }

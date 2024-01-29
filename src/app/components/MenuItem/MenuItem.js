@@ -1,14 +1,8 @@
-"use client";
-import { useEffect } from "react";
 import Image from "next/image";
 import styles from "./MenuItem.module.css";
 import { truncateText } from "../../../utils/utils";
 
 const MenuItem = ({ name, price, description, image }) => {
-
-  useEffect(() => {
-    truncateText();
-  }, []);
 
   return (
     <div className={styles.sectionContainer}>
@@ -25,7 +19,6 @@ const MenuItem = ({ name, price, description, image }) => {
             <Image
               width={250}
               height={250}
-              objectFit="cover"
               className={styles.menuItemImg}
               src={image}
               alt={name}
