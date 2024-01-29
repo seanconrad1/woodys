@@ -17,7 +17,7 @@ const MenuItem = ({ name, price, description, image }) => {
           <div className={styles.menuItemName}>{name}</div>
           <div className={styles.price}>{`$${price}.00`}</div>
           <div className={styles.description} id="description">
-            {description}
+            {truncateText(description)}
           </div>
         </div>
         {image && (

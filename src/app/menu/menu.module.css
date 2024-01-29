@@ -10,8 +10,7 @@
   margin-left: 120px;
 }
 
-.flex{
-}
+
 
 .menuGrid {
   display: grid;
@@ -44,6 +43,9 @@
 }
 
 @media screen and (max-width: 768px) {
+  .flex{
+    border-top: 1px solid black;
+  }
   .pageContainer {
     margin-bottom: 80px;
     display: flex;
