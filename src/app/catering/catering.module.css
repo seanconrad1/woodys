@@ -41,5 +41,12 @@
   .subHeader{
     margin-bottom: unset;
   }
+
+  .headerContainer{
+    padding-bottom: 20px;
+    margin-bottom: unset;
+  }
+
+
   
 }
