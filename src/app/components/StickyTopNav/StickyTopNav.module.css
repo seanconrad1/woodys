@@ -6,7 +6,6 @@
   transition: transform 0.3s;
   transform: translateY(-85px);
   height: 85px;
-  border-bottom: 1px solid black;
   background-color: white;
 }
 
@@ -40,4 +39,6 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  border-bottom: 1px solid black;
+
 }
