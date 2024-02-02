@@ -15,9 +15,7 @@ const playFairFont = Playfair_Display({
   display: "swap",
 });
 
-export const viewport = {
-  themeColor: 'yellow',
-}
+
 
 export const metadata = {
   icons: {
