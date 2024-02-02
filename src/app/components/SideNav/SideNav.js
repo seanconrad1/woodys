@@ -5,6 +5,7 @@ import SocialsContainer from "../SocialsContainer/SocialsContainer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useWindowDimensions from "../../../hooks/useWindowDimensions";
 import { faUtensils } from "@fortawesome/free-solid-svg-icons";
+import StickyTopNav from "../../components/StickyTopNav/StickyTopNav";
 
 const orderPickupLink =
   "https://ordering.chownow.com/order/6077/locations?add_cn_ordering_class=true";
@@ -32,7 +33,9 @@ const SideNav = () => {
   if (windowWidth < 769) {
     return (
       <>
-        <div className={styles.barContainer}>
+        <StickyTopNav />
+
+        <div id="menu-bar" className={styles.barContainer}>
           <button className={styles.button} onClick={toggleNav}>
             <FontAwesomeIcon
               className={styles.faIcon}
@@ -102,7 +105,9 @@ const SideNav = () => {
               <li className={styles.address}>
                 1722 S DALE MABRY HWY TAMPA, FL 33629
               </li>
-              <li><a href="tel:813-254-2806">813-254-2806</a></li>
+              <li>
+                <a href="tel:813-254-2806">813-254-2806</a>
+              </li>
             </ul>
           </nav>
         </div>

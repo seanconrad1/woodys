@@ -6,7 +6,7 @@ import ImageCrossfader from "./components/ImageCrossfader/ImageCrossfader";
 import SideNav from "./components/SideNav/SideNav";
 import styles from "./page.module.css";
 import { getBlurbs, getFoodCards } from "@/utils/api";
-
+import StickyTopNav from "./components/StickyTopNav/StickyTopNav";
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [blurbs, setBlurbs] = useState([]);
@@ -51,6 +51,7 @@ export default function Home() {
         blurb2={foodCards[0]?.fields.description.content[0].content[0].value}
         blurb3={foodCards[2]?.fields.description.content[0].content[0].value}
       />
+      {/* <StickyTopNav /> */}
     </main>
   );
 }
