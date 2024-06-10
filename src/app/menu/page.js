@@ -1,16 +1,28 @@
+'use client';
+import React, { useState, useEffect } from "react";
 import styles from "./menu.module.css";
 import MenuItem from "../components/MenuItem/MenuItem";
 import { getMenuItems } from "../../utils/api";
 import SideNav from "../components/SideNav/SideNav";
 
-const Page = async () => {
-  const items = await getMenuItems();
+const Page = () => {
+  
+  const [menuItems, setMenuItems] = useState("");
+  
+  useEffect(() => {
+    async function fetchMyAPI() {
+      const items = await getMenuItems();
+      setMenuItems(items);
+    }
+    fetchMyAPI();
+  }, []);
 
+  if(!menuItems) return null;
   return (
     <div className={styles.pageContainer}>
       <SideNav />
       <div className={styles.flex}>
-        {items.map((i) => {
+        {menuItems.map((i) => {
           return (
             <div key={i} className={styles.categoryContainer}>
               <h2 id={Object.keys(i)[0].toLowerCase()} className={styles.header}>{Object.keys(i)[0]}</h2>
