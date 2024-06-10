@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import SideNav from "../components/SideNav/SideNav";
 import styles from "./soups.module.css";
 import { getSoups, getSoupPageImage } from "../../utils/api";
@@ -6,47 +7,65 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import moment from "moment";
 import Image from "next/image";
 
-const items = await getSoups();
-const { image } = await getSoupPageImage();
+const Page = () => {
+  const [soups, setSoups] = useState("");
+  const [image, setSoupImage] = useState("");
 
-// Sorts the items by date created.
-items.sort((a, b) => {
-  if (moment(a.sys.createdAt).isAfter(b.sys.createdAt)) {
-    return 1;
-  } else {
-    return -1;
+  useEffect(() => {
+    async function fetchMyAPI() {
+      const items = await getSoups();
+      const { image } = await getSoupPageImage();
+      setSoups(items);
+      setSoupImage(image);
+    }
+    fetchMyAPI();
+  }, []);
+
+  let soupsSorted = soups ? soups.sort((a, b) => {
+    // Extract date numbers from names
+    const dateNumberA = parseInt(a.fields.name.match(/\d+/g) || Infinity);
+    const dateNumberB = parseInt(b.fields.name.match(/\d+/g) || Infinity);
+
+    // Check if name is "Everyday"
+    if (a.fields.name === "Everyday") return -1;
+    if (b.fields.name === "Everyday") return 1;
+
+    // Compare date numbers
+    return dateNumberA - dateNumberB;
+  }) : [];
+
+
+  const days = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
+  const today = new Date();
+  // Gets the abbreviated day name
+  const dayName = days[today.getDay()].toUpperCase();
+
+  // Returns the text with "TODAY -> " in front of it if it is today's date.
+  const todaysDate = (text) => {
+    const day = text.split(" ")[0];
+    if (dayName === day) {
+      return <span className={styles.todaysDate}>{`TODAY -> ${text}`}</span>;
+    } else {
+      return text;
+    }
+  };
+
+  /**
+   * Options for rendering text.
+   * @typedef {Object} Options
+   * @property {function} renderText - A function that renders the text.
+   */
+  const options = {
+    renderText: (text) => {
+      return text.split("\n").reduce((children, textSegment, index) => {
+        return [...children, index > 0 && <br key={index} />, textSegment];
+      }, []);
+    },
+  };
+
+  if (!soups) {
+    return null;
   }
-});
-
-const days = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
-const today = new Date();
-// Gets the abbreviated day name
-const dayName = days[today.getDay()].toUpperCase();
-
-// Returns the text with "TODAY -> " in front of it if it is today's date.
-const todaysDate = (text) => {
-  const day = text.split(" ")[0];
-  if (dayName === day) {
-    return <span className={styles.todaysDate}>{`TODAY -> ${text}`}</span>;
-  } else {
-    return text;
-  }
-};
-
-/**
- * Options for rendering text.
- * @typedef {Object} Options
- * @property {function} renderText - A function that renders the text.
- */
-const options = {
-  renderText: (text) => {
-    return text.split("\n").reduce((children, textSegment, index) => {
-      return [...children, index > 0 && <br key={index} />, textSegment];
-    }, []);
-  },
-};
-
-const page = async () => {
   return (
     <div className={styles.pageContainer}>
       <SideNav />
@@ -62,7 +81,7 @@ const page = async () => {
         </div>
         <div className={styles.soupAndImage}>
           <div className={styles.soupsContainer}>
-            {items.map((item, idx) => {
+            {soupsSorted.map((item, idx) => {
               return (
                 <div key={idx} className={styles.weeklySoupContainer}>
                   <h2 className={styles.header}>{item.fields.name}</h2>
@@ -99,4 +118,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default Page;

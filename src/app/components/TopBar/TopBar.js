@@ -42,8 +42,8 @@ const TopBar = () => {
           as="image"
           rel="preload"
           priority
-          width={"640px"}
-          height={"640px"}
+          width={640}
+          height={640}
           src={windowWidth < 769 ? brandText : brandWhite}
           alt="Woodys Restaurant"
           className={styles.brandImage}
