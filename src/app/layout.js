@@ -18,6 +18,8 @@ const playFairFont = Playfair_Display({
 
 
 export const metadata = {
+  metadataBase: new URL('https://www.woodysofsouthtampa.com'),
+
   icons: {
     icon: './assets/woodys_white.jpeg',
     shortcut: './assets/woodys_white.jpeg',
@@ -40,7 +42,7 @@ export const metadata = {
   openGraph: {
     title: 'Woodys Famous Greek Salads',
     description: 'The React Framework for the Web',
-    url: 'https://woodysofsouthtampa.com',
+    url: 'https://www.woodysofsouthtampa.com',
     siteName: 'Next.js',
     images: [
       {

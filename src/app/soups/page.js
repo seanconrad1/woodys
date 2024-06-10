@@ -79,6 +79,9 @@ const page = async () => {
             <div>V = Vegan</div>
           </div>
           <Image
+            priority
+            rel="preload"
+            as="image"
             className={styles.image}
             alt={""}
             src={image?.fields.file.url.replace("//", "https://")}

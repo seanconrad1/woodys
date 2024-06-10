@@ -9,6 +9,9 @@ const Footer = () => {
     <footer className={styles.footerContainer}>
       <div className={styles.brandImgContainer}>
         <Image
+          as="image"
+          rel="preload"
+          priority
           className={styles.brandImg}
           alt="Woodys Restaurant"
           src={woodysWhite}

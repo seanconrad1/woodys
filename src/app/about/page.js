@@ -14,9 +14,11 @@ export default async function About() {
       <h1 className={styles.aboutUsHeader}>About Us</h1>
       <p className={styles.about}>{data}</p>
       <Image
+        rel="preload"
+        priority
         width={300}
+        as="image"
         height={400}
-        objectFit="contain"
         className={styles.woodyImage}
         src={woodyPhoto.fields.file.url.replace("//", "https://")}
         alt="Photo of Woody Gilbert in flight suit, 1945 Manilla"

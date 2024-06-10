@@ -30,12 +30,14 @@ export default function Home() {
         <ImageCrossfader />
       </div>
       <Blurb
+        loading={loading}
         image={blurbs[0]?.fields.foodImage.fields.file.url}
         backgroundColor={"#F2F2F5"}
         blurbHeader={blurbs[0]?.fields.blurbHeader}
         blurb={blurbs[0]?.fields.blurbDescription.content[0].content[0].value}
       />
       <Blurb
+        loading={loading}
         opposite={true}
         image={blurbs[1]?.fields.foodImage.fields.file.url}
         backgroundColor={"white"}

@@ -38,15 +38,16 @@ const TopBar = () => {
   return (
     <div className={styles.topBarContainer}>
       <a href="/" className={styles.brandImageLink}>
-        {typeof windowWidth !== "undefined" && (
-          <Image
-            width={"300px"}
-            height={"0px"}
-            src={windowWidth < 769 ? brandText : brandWhite}
-            alt="Woodys Restaurant"
-            className={styles.brandImage}
-          ></Image>
-        )}
+        <Image
+          as="image"
+          rel="preload"
+          priority
+          width={"640px"}
+          height={"640px"}
+          src={windowWidth < 769 ? brandText : brandWhite}
+          alt="Woodys Restaurant"
+          className={styles.brandImage}
+        ></Image>
       </a>
 
       {windowWidth < 769 ? null : (

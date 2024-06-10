@@ -15,6 +15,9 @@ const MenuItem = ({ name, price, description, image }) => {
           {image && (
             <div className={styles.menuItemImgContainer}>
               <Image
+                as="image"
+                rel="preload"
+                priority
                 width={250}
                 height={250}
                 className={styles.menuItemImg}

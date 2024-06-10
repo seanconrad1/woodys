@@ -27,7 +27,7 @@ const ImageCrossfader = () => {
     let curImage = 0;
     let numImages = imagesLength;
 
-  function nextImage() {
+    function nextImage() {
       let imageElement;
       // remove show class from current image
       imageElement = document.getElementById("slideimg" + curImage);
@@ -74,13 +74,18 @@ const ImageCrossfader = () => {
             }`}
           >
             <Image
-              layout="fill"
-              objectFit="cover"
+              priority
+              as="image"
+              rel="preload"
               className={`${styles.image} `}
-              src={image.fields.file.url.replace("//", "https://")}
+              src={"https:" + image.fields.file.url}
+              width={image.fields.file.details.image.width}
+              height={image.fields.file.details.image.height}
               alt={image.fields.title}
             />
-            <div className={`${styles.menuItemName}`}>{removeDashes(image.fields.title)}</div>
+            <div className={`${styles.menuItemName}`}>
+              {removeDashes(image.fields.title)}
+            </div>
             <div className={styles.gradient}></div>
           </div>
         );
