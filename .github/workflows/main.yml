@@ -1,0 +1,46 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main # Set the branch you want to listen to
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the app
+        run: npm run build
+
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@v0.1.5
+        with:
+          host: mi3-ss26.a2hosting.com
+          username: woodysof
+          port: 7822
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /home/woodysof/public_html/woodysofsouthtampa
+            rm -rf *
+            exit
+      - name: Copy Files
+        uses: appleboy/scp-action@master
+        with:
+          host: mi3-ss26.a2hosting.com
+          username: woodysof
+          port: 7822
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "./build/*"
+          target: "/home/woodysof/public_html/woodysofsouthtampa"

@@ -17,6 +17,7 @@ const MenuItem = ({ name, price, description, image }) => {
               <Image
                 as="image"
                 rel="preload"
+                unoptimized={false}
                 priority
                 width={250}
                 height={250}
