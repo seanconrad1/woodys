@@ -47,7 +47,7 @@ jobs:
           username: woodysof
           port: 7822
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "./*,!./node_modules,!./.git,!./.github,!./.gitignore,!./.gitattributes,!./.vscode"
+          source: "./*,!./node_modules/"
           target: "/home/woodysof/public_html/woodysofsouthtampa"
 
       - name: NPM install
