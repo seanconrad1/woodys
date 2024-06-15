@@ -48,7 +48,6 @@ jobs:
           port: 7822
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            exec bash
             cd /home/woodysof/public_html/woodysofsouthtampa
+            exec bash
             npm install
-            exit
