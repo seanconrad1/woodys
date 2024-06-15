@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      
     - name: Checkout code
       uses: actions/checkout@v2
 
@@ -23,6 +24,11 @@ jobs:
 
     - name: Build the app
       run: npm run build
+
+    - name: Print SSH key
+      run: echo "${{ secrets.SSH_PRIVATE_KEY }}"
+      shell: bash
+
 
     - name: Deploy to Server
       uses: appleboy/ssh-action@v0.1.5
