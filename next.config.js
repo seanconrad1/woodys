@@ -4,7 +4,6 @@ const nextConfig = {
     CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
     CONTENTFUL_DELIVERY_API_KEY: process.env.CONTENTFUL_DELIVERY_API_KEY,
   },
-  distDir: 'build',
   images: {
     remotePatterns: [
       {
