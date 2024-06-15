@@ -49,7 +49,7 @@ jobs:
         username: woodysof
         port: 7822
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        source: ".next/*"
+        source: "build/*"
         target: "/home/woodysof/public_html/woodysofsouthtampa"
 
     - name: NPM install
