@@ -49,5 +49,17 @@ jobs:
         username: woodysof
         port: 7822
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        source: "./build/*"
+        source: "./.next/*"
         target: "/home/woodysof/public_html/woodysofsouthtampa"
+
+    - name: NPM install
+      uses: appleboy/ssh-action@v0.1.5
+      with:
+        host: mi3-ss26.a2hosting.com
+        username: woodysof
+        port: 7822
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          cd /home/woodysof/public_html/woodysofsouthtampa
+          npm install
+          exit
