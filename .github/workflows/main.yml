@@ -49,5 +49,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /home/woodysof/public_html/woodysofsouthtampa
-            exec bash
+            exec bash \-l
             npm install
