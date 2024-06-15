@@ -25,9 +25,9 @@ jobs:
     - name: Build the app
       run: npm run build
 
-    # - name: Print SSH key
-    #   run: echo "${{ secrets.SSH_PRIVATE_KEY }}"
-    #   shell: bash
+    - name: Print file list
+      run: ls -lah
+      shell: bash
 
 
     - name: Remove existing files
