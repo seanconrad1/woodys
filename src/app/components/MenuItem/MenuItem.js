@@ -11,7 +11,7 @@ const MenuItem = ({ name, price, description, image }) => {
             <div className={styles.menuItemName}>{name}</div>
             <div className={styles.price}>{`$${price}.00`}</div>
           </div>
-          <div>TEST</div>
+          <div>TEST1</div>
 
           {image && (
             <div className={styles.menuItemImgContainer}>
