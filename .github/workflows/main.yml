@@ -47,7 +47,11 @@ jobs:
           username: woodysof
           port: 7822
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # script: |
+          #   cd /home/woodysof/public_html/woodysofsouthtampa
+          #   exec bash \-l
+          #   npm install
           script: |
-            cd /home/woodysof/public_html/woodysofsouthtampa
-            exec bash \-l
-            npm install
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            npm --help
