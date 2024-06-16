@@ -48,7 +48,7 @@ jobs:
           port: 7822
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /home/woodysof/public_html/woodysofsouthtampa
+            source /home/woodysof/nodevenv/public_html/woodysofsouthtampa/20/bin/activate && cd /home/woodysof/public_html/woodysofsouthtampa
             npm install
           # script: |
           #   export NVM_DIR=~/.nvm
