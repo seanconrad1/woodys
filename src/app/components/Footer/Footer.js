@@ -1,21 +1,36 @@
-import React from "react";
+/* eslint-disable @next/next/no-img-element */
+"use client";
+import React, { useState, useEffect } from "react";
 import styles from "./Footer.module.css";
-import Image from "next/image";
-import woodysWhite from "../../assets/woodys_white.jpeg";
 import SocialsContainer from "../SocialsContainer/SocialsContainer";
+import { getBrandImageDesktop } from "@/utils/api";
 
 const Footer = () => {
+  const [brandImage, setBrandImage] = useState("");
+  useEffect(() => {
+    async function fetchMyAPI() {
+      const image = await getBrandImageDesktop();
+      setBrandImage(image);
+    }
+    fetchMyAPI();
+  }, []);
+
+
   return (
     <footer className={styles.footerContainer}>
       <div className={styles.brandImgContainer}>
-        <Image
-          as="image"
-          rel="preload"
-          priority
-          className={styles.brandImg}
-          alt="Woodys Restaurant"
-          src={woodysWhite}
-        />
+        {!brandImage ? (
+          <div>Loading...</div>
+        ) : (
+          <img
+            as="image"
+            rel="preload"
+            priority={true}
+            className={styles.brandImg}
+            alt="Woodys Restaurant"
+            src={"https:" + brandImage}
+          />
+        )}
       </div>
       <div className={styles.infoItemsContainer}>
         <SocialsContainer size={"2xl"} color={"white"} />

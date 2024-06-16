@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import styles from "./Blurb.module.css";
 import Image from "next/image";
@@ -20,7 +21,7 @@ const Blurb = ({
         {loading ? (
           <div>Loading...</div>
         ) : (
-          <Image
+          <img
             rel="preload"
             priority
             as="image"
@@ -48,7 +49,7 @@ const Blurb = ({
             {loading ? (
               <div>Loading...</div>
             ) : (
-              <Image
+              <img
                 rel="preload"
                 priority
                 as="image"
@@ -65,7 +66,7 @@ const Blurb = ({
             {loading ? (
               <div>Loading...</div>
             ) : (
-              <Image
+              <img
                 rel="preload"
                 priority
                 as="image"

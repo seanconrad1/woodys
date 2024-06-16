@@ -97,7 +97,7 @@ const Page = () => {
             <div>DF = Dairy free</div>
             <div>V = Vegan</div>
           </div>
-          <Image
+          <img
             priority
             rel="preload"
             as="image"

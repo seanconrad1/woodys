@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
@@ -73,7 +74,7 @@ const ImageCrossfader = () => {
               idx === 0 ? styles.show : ""
             }`}
           >
-            <Image
+            <img
               priority
               as="image"
               rel="preload"

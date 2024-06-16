@@ -1,22 +1,31 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useEffect, useState } from "react";
 import styles from "./TopBar.module.css";
-import brandWhite from "../../assets/woodys_white.jpeg";
-import brandText from "../../assets/brand2.jpeg";
 import Image from "next/image";
 import localFont from "next/font/local";
-import { getAddressAndPhone } from "../../../utils/api";
+import {
+  getAddressAndPhone,
+  getBrandImageDesktop,
+  getBrandImageMobile,
+} from "../../../utils/api";
 
 const avenirFont = localFont({ src: "../../assets/fonts/avenir_next.woff2" });
 
 const TopBar = () => {
   const [addressAndPhone, setAddressAndPhone] = useState("");
   const [windowWidth, setWindowWidth] = useState(undefined);
+  const [brandImage, setBrandImage] = useState("");
+  const [mobileBrandImage, setMobileBrandImage] = useState("");
 
   useEffect(() => {
     async function fetchMyAPI() {
       const result = await getAddressAndPhone();
+      const image = await getBrandImageDesktop();
+      const mobileImage = await getBrandImageMobile();
       setAddressAndPhone(result);
+      setBrandImage(image);
+      setMobileBrandImage(mobileImage);
     }
     fetchMyAPI();
 
@@ -38,16 +47,23 @@ const TopBar = () => {
   return (
     <div className={styles.topBarContainer}>
       <a href="/" className={styles.brandImageLink}>
-        <Image
-          as="image"
-          rel="preload"
-          priority
-          width={640}
-          height={640}
-          src={windowWidth < 769 ? brandText : brandWhite}
-          alt="Woodys Restaurant"
-          className={styles.brandImage}
-        ></Image>
+        {!brandImage ? (
+          <div>Loading...</div>
+        ) : (
+          <img
+            as="image"
+            rel="preload"
+            priority
+            loading="eager"
+            src={
+              windowWidth < 769
+                ? "https:" + mobileBrandImage
+                : "https:" + brandImage
+            }
+            alt="Woodys Restaurant"
+            className={styles.brandImage}
+          />
+        )}
       </a>
 
       {windowWidth < 769 ? null : (

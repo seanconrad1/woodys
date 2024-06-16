@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import styles from "./MenuItem.module.css";
 import { truncateText } from "../../../utils/utils";
@@ -11,11 +12,10 @@ const MenuItem = ({ name, price, description, image }) => {
             <div className={styles.menuItemName}>{name}</div>
             <div className={styles.price}>{`$${price}.00`}</div>
           </div>
-          <div>TEST1</div>
 
           {image && (
             <div className={styles.menuItemImgContainer}>
-              <Image
+              <img
                 as="image"
                 rel="preload"
                 unoptimized={false}

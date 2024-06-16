@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useState, useEffect } from "react";
 import styles from "./about.module.css";
@@ -26,7 +27,7 @@ export default function About() {
       <div className={`${styles.aboutContainer} ${avenirFont.className}`}>
         <h1 className={styles.aboutUsHeader}>About Us</h1>
         <p className={styles.about}>{copy}</p>
-        <Image
+        <img
           rel="preload"
           priority
           width={300}

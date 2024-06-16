@@ -93,6 +93,28 @@ export async function getAboutUs() {
   return res.fields;
 }
 
+export async function getBrandImageDesktop() {
+  return client
+    .getEntries({
+      content_type: "brandImageDesktop",
+    })
+    .then(function (entries) {
+      return entries.items[0].fields.image.fields.file.url;
+    });
+}
+
+export async function getBrandImageMobile() {
+  return client
+    .getEntries({
+      content_type: "brandImageMobile",
+    })
+    .then(function (entries) {
+      return entries.items[0].fields.image.fields.file.url;
+    });
+
+}
+
+
 export async function getMenuItems() {
   let contentType = "menuItem";
   let res;
@@ -145,7 +167,6 @@ export async function getMenuItems() {
     { Catering: catering },
   ];
 }
-
 
 export async function getCateringInfo() {
   let res;
