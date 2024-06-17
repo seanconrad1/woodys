@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useState, useEffect } from "react";
 import SideNav from "../components/SideNav/SideNav";
@@ -20,6 +21,7 @@ const Page = () => {
     }
     fetchMyAPI();
   }, []);
+
 
   let soupsSorted = soups ? soups.sort((a, b) => {
     // Extract date numbers from names
