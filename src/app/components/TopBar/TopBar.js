@@ -75,7 +75,8 @@ const TopBar = () => {
           </div>
           <div className={`${styles.bar} ${styles.bar2}`}>
             <div className={styles.bar2Item}>
-              <div className={styles.address}>{addressAndPhone.address}</div>
+              <div className={styles.address}>{addressAndPhone?.address?.split(',')[0]}</div>
+              <div className={styles.address}>{addressAndPhone?.address?.split(',')[1]}</div>
               <a
                 className={styles.phone}
                 href={`tel:${addressAndPhone.phoneNumber}`}
