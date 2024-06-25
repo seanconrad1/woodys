@@ -35,7 +35,7 @@ const Page = () => {
                   <MenuItem
                     key={item.fields.name}
                     name={item?.fields?.name}
-                    price={item?.fields?.price}
+                    price={item?.fields?.itemPrice}
                     image={item?.fields?.image?.fields?.file?.url.replace(
                       "//",
                       "https://"
