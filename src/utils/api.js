@@ -124,20 +124,11 @@ export async function getMenuItems() {
     throw new Error(`Failed to fetch data`);
   }
 
-  // Sorts the items by date created.
-  const sort = (array) => {
-    return array.sort((a, b) => {
-      if (moment(a.sys.createdAt).isAfter(b.sys.createdAt)) {
-        return 1;
-      } else {
-        return -1;
-      }
-    });
-  };
+  const predefinedOrder = ["Salads", "Soups", "Sandwiches", "Wheat Wraps", "Lunchboxes", "Catering"];
 
   const objOfItems = () => {
     const obj = {};
-    // Assuming res.items is an array and accessible within this function
+    // Sort the items by date created
     res.items.forEach((item) => {
       if (obj[item.fields.category]) {
         obj[item.fields.category].push(item);
@@ -152,8 +143,23 @@ export async function getMenuItems() {
     }));
   };
 
+  const objects = objOfItems();
+  console.log(objects);
+
+  // objects.sort((a, b) => {
+  //   const indexA = predefinedOrder.indexOf(a.category);
+  //   const indexB = predefinedOrder.indexOf(b.category);
+  
+  //   if (indexA === -1 && indexB === -1) return 0; // Both categories are not in the predefined order, keep their relative order
+  //   if (indexA === -1) return 1; // Only A is not in the predefined order, place A after B
+  //   if (indexB === -1) return -1; // Only B is not in the predefined order, place B after A
+  
+  //   return indexA - indexB; // Both categories are in the predefined order, sort them according to the predefined order
+  // });
+
+
   // Return an array of objects with the category as the key and the items as the value.
-  return objOfItems()
+  return objects
 }
 
 export async function getCateringInfo() {
