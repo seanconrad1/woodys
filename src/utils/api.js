@@ -111,9 +111,7 @@ export async function getBrandImageMobile() {
     .then(function (entries) {
       return entries.items[0].fields.image.fields.file.url;
     });
-
 }
-
 
 export async function getMenuItems() {
   let contentType = "menuItem";
@@ -137,35 +135,25 @@ export async function getMenuItems() {
     });
   };
 
-  // Filters the items by category.
-  const soups = res.items.filter((item) => item.fields.category === "Soups");
-  const salads = res.items.filter((item) => item.fields.category === "Salads");
-  const sandwiches = res.items.filter(
-    (item) => item.fields.category === "Sandwiches"
-  );
-  // const sides = res.items.filter((item) => item.fields.category === "Sides");
-  // const drinks = res.items.filter((item) => item.fields.category === "Drinks");
-  const catering = res.items.filter(
-    (item) => item.fields.category === "Catering"
-  );
-  const wraps = res.items.filter(
-    (item) => item.fields.category === "Wheat Wraps"
-  );
-
-  sort(soups);
-  sort(salads);
-  sort(sandwiches);
-  sort(catering);
-  sort(wraps);
+  const objOfItems = () => {
+    const obj = {};
+    // Assuming res.items is an array and accessible within this function
+    res.items.forEach((item) => {
+      if (obj[item.fields.category]) {
+        obj[item.fields.category].push(item);
+      } else {
+        obj[item.fields.category] = [item];
+      }
+    });
+    // Convert the obj into an array of objects
+    return Object.keys(obj).map(category => ({
+      category: category,
+      items: obj[category]
+    }));
+  };
 
   // Return an array of objects with the category as the key and the items as the value.
-  return [
-    { Salads: salads },
-    { Soups: soups },
-    { Sandwiches: sandwiches },
-    { Wraps: wraps },
-    { Catering: catering },
-  ];
+  return objOfItems()
 }
 
 export async function getCateringInfo() {

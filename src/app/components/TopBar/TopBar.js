@@ -53,7 +53,7 @@ const TopBar = () => {
           <img
             as="image"
             rel="preload"
-            priority
+            priority="true"
             loading="eager"
             src={
               windowWidth < 769

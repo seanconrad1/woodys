@@ -29,7 +29,7 @@ export default function About() {
         <p className={styles.about}>{copy}</p>
         <img
           rel="preload"
-          priority
+          priority="true"
           width={300}
           as="image"
           height={400}

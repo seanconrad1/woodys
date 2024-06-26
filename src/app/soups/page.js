@@ -100,7 +100,7 @@ const Page = () => {
             <div>V = Vegan</div>
           </div>
           <img
-            priority
+            priority="true"
             rel="preload"
             as="image"
             className={styles.image}

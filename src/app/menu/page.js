@@ -21,19 +21,19 @@ const Page = () => {
     <div className={styles.pageContainer}>
       <SideNav />
       <div className={styles.flex}>
-        {menuItems.map((i) => {
+        {menuItems.map((item, index) => {
           return (
-            <div key={i} className={styles.categoryContainer}>
+            <div key={index} className={styles.categoryContainer}>
               <h2
-                id={Object.keys(i)[0].toLowerCase()}
+                id={item.category.toLowerCase()}
                 className={styles.header}
               >
-                {Object.keys(i)[0]}
+                {item.category}
               </h2>
               <div className={styles.menuGrid}>
-                {i[Object.keys(i)].map((item, i) => (
+                {item.items.map((item, i) => (
                   <MenuItem
-                    key={item.fields.name}
+                    key={item.fields.name + i}
                     name={item?.fields?.name}
                     price={item?.fields?.itemPrice}
                     image={item?.fields?.image?.fields?.file?.url.replace(

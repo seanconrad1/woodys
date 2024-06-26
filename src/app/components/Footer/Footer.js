@@ -25,7 +25,7 @@ const Footer = () => {
           <img
             as="image"
             rel="preload"
-            priority={true}
+            priority="true"
             className={styles.brandImg}
             alt="Woodys Restaurant"
             src={"https:" + brandImage}

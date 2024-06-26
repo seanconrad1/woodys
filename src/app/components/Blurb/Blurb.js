@@ -23,7 +23,7 @@ const Blurb = ({
         ) : (
           <img
             rel="preload"
-            priority
+            priority="true"
             as="image"
             width={400}
             height={400}
@@ -51,7 +51,7 @@ const Blurb = ({
             ) : (
               <img
                 rel="preload"
-                priority
+                priority="true"
                 as="image"
                 width={400}
                 height={400}
@@ -68,7 +68,7 @@ const Blurb = ({
             ) : (
               <img
                 rel="preload"
-                priority
+                priority="true"
                 as="image"
                 width={400}
                 height={400}

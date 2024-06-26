@@ -75,7 +75,7 @@ const ImageCrossfader = () => {
             }`}
           >
             <img
-              priority
+              priority="true"
               as="image"
               rel="preload"
               className={`${styles.image} `}

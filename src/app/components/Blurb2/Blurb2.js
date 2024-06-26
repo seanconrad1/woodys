@@ -25,7 +25,7 @@ const Blurb2 = ({
               rel="preload"
               as="image"
               // loader={<div>Loading...</div>}
-              priority
+              priority="true"
               width={280}
               height={280}
               src={salad?.replace("//", "https://")}
@@ -43,7 +43,7 @@ const Blurb2 = ({
             <img
               rel="preload"
               as="image"
-              priority
+              priority="true"
               width={280}
               height={280}
               src={soup?.replace("//", "https://")}
@@ -60,7 +60,7 @@ const Blurb2 = ({
             <img
               rel="preload"
               as="image"
-              priority
+              priority="true"
               width={280}
               height={280}
               src={sandwich?.replace("//", "https://")}
