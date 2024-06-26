@@ -52,7 +52,7 @@ jobs:
             source /home/woodysof/nodevenv/public_html/woodysofsouthtampa/20/bin/activate && cd /home/woodysof/public_html/woodysofsouthtampa
             npm run build
             npm install
-            touch tmp/restart.txt
+            touch ~/tmp/restart.txt
           # script: |
           #   export NVM_DIR=~/.nvm
           #   source ~/.nvm/nvm.sh
