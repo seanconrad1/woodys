@@ -37,7 +37,6 @@ export default function About() {
           src={woodyPhoto.fields.file.url.replace("//", "https://")}
           alt="Photo of Woody Gilbert in flight suit, 1945 Manilla"
         />
-        {"test"}
       </div>
     );
   }
