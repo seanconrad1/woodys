@@ -17,6 +17,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "20.12.2"
+      - run: |
+          npm run build
           
 
       - name: Remove existing files
@@ -52,7 +54,3 @@ jobs:
             source /home/woodysof/nodevenv/public_html/woodysofsouthtampa/20/bin/activate && cd /home/woodysof/public_html/woodysofsouthtampa
             npm install
             touch /home/woodysof/www/woodysofsouthtampa/tmp/restart.txt
-          # script: |
-          #   export NVM_DIR=~/.nvm
-          #   source ~/.nvm/nvm.sh
-          #   npm --help
