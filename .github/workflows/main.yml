@@ -20,6 +20,10 @@ jobs:
       - run: |
           npm install -g next
           npm install
+          touch .env  
+          echo CONTENTFUL_DELIVERY_API_KEY=${{ secrets.CONTENTFUL_DELIVERY_API_KEY }} >> .env
+          echo CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }} >> .env
+
           npm run build
           
 
