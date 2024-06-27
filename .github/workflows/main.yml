@@ -3,7 +3,7 @@ name: Deploy to Server
 on:
   push:
     branches:
-      - main # Set the branch you want to listen to
+      - main
 
 jobs:
   build:
@@ -23,10 +23,8 @@ jobs:
           touch .env  
           echo CONTENTFUL_DELIVERY_API_KEY=${{ secrets.CONTENTFUL_DELIVERY_API_KEY }} >> .env
           echo CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }} >> .env
-
           npm run build
           
-
       - name: Remove existing files
         uses: appleboy/ssh-action@v0.1.5
         with:
