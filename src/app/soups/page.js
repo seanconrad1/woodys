@@ -22,20 +22,36 @@ const Page = () => {
     fetchMyAPI();
   }, []);
 
+  let soupsSorted = soups
+    ? soups.sort((a, b) => {
+        // Extract date numbers from names
+        const dateNumberA = parseInt(a.fields.name.match(/\d+/g) || Infinity);
+        const dateNumberB = parseInt(b.fields.name.match(/\d+/g) || Infinity);
 
-  let soupsSorted = soups ? soups.sort((a, b) => {
-    // Extract date numbers from names
-    const dateNumberA = parseInt(a.fields.name.match(/\d+/g) || Infinity);
-    const dateNumberB = parseInt(b.fields.name.match(/\d+/g) || Infinity);
+        // Check if name is "Everyday"
+        if (a.fields.name === "Everyday") return -1;
+        if (b.fields.name === "Everyday") return 1;
 
-    // Check if name is "Everyday"
-    if (a.fields.name === "Everyday") return -1;
-    if (b.fields.name === "Everyday") return 1;
+        // Compare date numbers
+        return dateNumberA - dateNumberB;
+      })
+    : [];
 
-    // Compare date numbers
-    return dateNumberA - dateNumberB;
-  }) : [];
-
+  // const joinParagraphs = (data) => {
+  //   return data.map(entry => {
+  //     if (entry.fields && entry.fields.weeklySoup && Array.isArray(entry.fields.weeklySoup.content)) {
+  //       const paragraphs = entry.fields.weeklySoup.content
+  //         .filter(content => content.nodeType === 'paragraph')
+  //         .map(content => content.content
+  //           .filter(paragraphContent => paragraphContent.nodeType === 'text')
+  //           .map(paragraphContent => paragraphContent.value)
+  //           .join('\n'))
+  //         .join('\n');
+  //       entry.fields.weeklySoup.content[0].value = paragraphs;
+  //     }
+  //     return entry;
+  //   });
+  // }
 
   const days = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
   const today = new Date();
@@ -68,6 +84,7 @@ const Page = () => {
   if (!soups) {
     return null;
   }
+
   return (
     <div className={styles.pageContainer}>
       <SideNav />
@@ -84,6 +101,7 @@ const Page = () => {
         <div className={styles.soupAndImage}>
           <div className={styles.soupsContainer}>
             {soupsSorted.map((item, idx) => {
+              console.log(item.fields.weeklySoup);
               return (
                 <div key={idx} className={styles.weeklySoupContainer}>
                   <h2 className={styles.header}>{item.fields.name}</h2>
