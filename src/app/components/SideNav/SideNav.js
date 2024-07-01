@@ -121,6 +121,10 @@ const SideNav = () => {
                 <SocialsContainer size={"xl"} color={"black"} />
               </li>
 
+              <li className={styles.hours}>
+                {documentToReactComponents(hours, options)}
+              </li>
+
               <li className={styles.address}>
                 1722 S DALE MABRY HWY TAMPA, FL 33629
               </li>
