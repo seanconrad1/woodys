@@ -57,4 +57,5 @@ jobs:
           script: |
             source /home/woodysof/nodevenv/public_html/woodysofsouthtampa/20/bin/activate && cd /home/woodysof/public_html/woodysofsouthtampa
             npm install
+            mkdir tmp
             touch tmp/restart.txt
