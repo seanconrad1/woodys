@@ -144,7 +144,6 @@ export async function getMenuItems() {
   };
 
   const objects = objOfItems();
-  console.log(objects);
 
   // objects.sort((a, b) => {
   //   const indexA = predefinedOrder.indexOf(a.category);
