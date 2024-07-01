@@ -171,3 +171,14 @@ export async function getCateringInfo() {
   }
   return res.fields;
 }
+
+
+export async function getHours() {
+  let res;
+  try {
+    res = await client.getEntry("3iEKTNqhhXdhWtjuj9W30i");
+  } catch (error) {
+    throw new Error(`Failed to fetch data`);
+  }
+  return res.fields;
+}

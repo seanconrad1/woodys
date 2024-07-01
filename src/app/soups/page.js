@@ -37,21 +37,7 @@ const Page = () => {
       })
     : [];
 
-  // const joinParagraphs = (data) => {
-  //   return data.map(entry => {
-  //     if (entry.fields && entry.fields.weeklySoup && Array.isArray(entry.fields.weeklySoup.content)) {
-  //       const paragraphs = entry.fields.weeklySoup.content
-  //         .filter(content => content.nodeType === 'paragraph')
-  //         .map(content => content.content
-  //           .filter(paragraphContent => paragraphContent.nodeType === 'text')
-  //           .map(paragraphContent => paragraphContent.value)
-  //           .join('\n'))
-  //         .join('\n');
-  //       entry.fields.weeklySoup.content[0].value = paragraphs;
-  //     }
-  //     return entry;
-  //   });
-  // }
+
 
   const days = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
   const today = new Date();
@@ -101,11 +87,10 @@ const Page = () => {
         <div className={styles.soupAndImage}>
           <div className={styles.soupsContainer}>
             {soupsSorted.map((item, idx) => {
-              console.log(item.fields.weeklySoup);
               return (
                 <div key={idx} className={styles.weeklySoupContainer}>
                   <h2 className={styles.header}>{item.fields.name}</h2>
-                  <div className={styles.soups}>
+                  <div className={styles.soups}> 
                     {documentToReactComponents(item.fields.weeklySoup, options)}
                   </div>
                 </div>

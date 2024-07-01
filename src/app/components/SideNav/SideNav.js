@@ -6,6 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useWindowDimensions from "../../../hooks/useWindowDimensions";
 import { faUtensils } from "@fortawesome/free-solid-svg-icons";
 import StickyTopNav from "../../components/StickyTopNav/StickyTopNav";
+import { getHours } from "@/utils/api";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const orderPickupLink =
   "https://ordering.chownow.com/order/6077/locations?add_cn_ordering_class=true";
@@ -17,6 +19,7 @@ const SideNav = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [height, setHeight] = useState("0px");
+  const [hours, setHours] = useState(null);
 
   const contentRef = useRef(null);
 
@@ -27,6 +30,22 @@ const SideNav = () => {
   useEffect(() => {
     setHeight(isOpen ? `${contentRef.current.scrollHeight}px` : "0px");
   }, [isOpen]);
+
+  useEffect(() => {
+    async function fetchHours() {
+      const result = await getHours();
+      setHours(result.storeHours);
+    }
+    fetchHours();
+  }, []);
+
+  const options = {
+    renderText: (text) => {
+      return text.split("\n").reduce((children, textSegment, index) => {
+        return [...children, index > 0 && <br key={index} />, textSegment];
+      }, []);
+    },
+  };
 
   // Mobile
 
@@ -151,6 +170,10 @@ const SideNav = () => {
         </nav>
 
         <SocialsContainer size={"xl"} color={"black"} />
+
+        <div className={styles.hours}>
+          {documentToReactComponents(hours, options)}
+        </div>
       </div>
     );
   }
