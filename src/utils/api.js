@@ -164,7 +164,7 @@ export async function getMenuItems() {
 export async function getCateringInfo() {
   let res;
   try {
-    res = await client.getEntry("2NHDnekvClmuKVFjGQZxYI");
+    res = await client.getEntry("3QlOJBpa9S8dRqmxdCXXXl");
   } catch (error) {
     throw new Error(`Failed to fetch data`);
   }
