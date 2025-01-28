@@ -53,7 +53,6 @@ const Page = () => {
         // Check if name is "Everyday"
         // If it is, it should be first
         if (a.fields.name === "Everyday") return -1;
-        if (b.fields.name === "Everyday") return 1;
 
         // Extract date numbers from names
         // To be able to sort by date
