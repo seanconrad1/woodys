@@ -22,22 +22,56 @@ const Page = () => {
     fetchMyAPI();
   }, []);
 
+  const getMonthFromName = (name) => {
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    for (let i = 0; i < monthNames.length; i++) {
+      if (name.includes(monthNames[i])) {
+        return i; // Return the month index (0 for January, 1 for February, etc.)
+      }
+    }
+    return -1; // Return -1 if no month is found
+  };
+
+  const currentMonth = new Date().getMonth();
+  const nextMonth = (currentMonth + 1) % 12;
+
   let soupsSorted = soups
     ? soups.sort((a, b) => {
+        // Check if name is "Everyday"
+        // If it is, it should be first
+        if (a.fields.name === "Everyday") return -1;
+        if (b.fields.name === "Everyday") return 1;
+
         // Extract date numbers from names
+        // To be able to sort by date
         const dateNumberA = parseInt(a.fields.name.match(/\d+/g) || Infinity);
         const dateNumberB = parseInt(b.fields.name.match(/\d+/g) || Infinity);
 
-        // Check if name is "Everyday"
-        if (a.fields.name === "Everyday") return -1;
-        if (b.fields.name === "Everyday") return 1;
+        // Check if a.fields.name includes a month that is before the next month
+        const monthA = getMonthFromName(a.fields.name);
+        const monthB = getMonthFromName(b.fields.name);
+        if (monthA !== -1 && monthB !== -1) {
+          if (monthA < nextMonth && monthB >= nextMonth) return -1;
+          if (monthA >= nextMonth && monthB < nextMonth) return 1;
+        }
 
         // Compare date numbers
         return dateNumberA - dateNumberB;
       })
     : [];
-
-
 
   const days = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
   const today = new Date();
@@ -90,7 +124,7 @@ const Page = () => {
               return (
                 <div key={idx} className={styles.weeklySoupContainer}>
                   <h2 className={styles.header}>{item.fields.name}</h2>
-                  <div className={styles.soups}> 
+                  <div className={styles.soups}>
                     {documentToReactComponents(item.fields.weeklySoup, options)}
                   </div>
                 </div>
