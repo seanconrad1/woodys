@@ -8,6 +8,7 @@ import { faUtensils } from "@fortawesome/free-solid-svg-icons";
 import StickyTopNav from "../../components/StickyTopNav/StickyTopNav";
 import { getHours } from "@/utils/api";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 const orderPickupLink =
   "https://ordering.chownow.com/order/6077/locations?add_cn_ordering_class=true";
@@ -24,6 +25,7 @@ const SideNav = () => {
   const contentRef = useRef(null);
 
   const toggleNav = () => {
+    sendGTMEvent({ event: `button-clicked`, value: "toggle-nav" });
     setIsOpen(!isOpen);
   };
 
@@ -47,6 +49,14 @@ const SideNav = () => {
     },
   };
 
+  const handleClick = (type) => {
+    if (type === "chownow") {
+      sendGTMEvent({ event: `pickup-link-clicked`, value: type });
+    } else {
+      sendGTMEvent({ event: `delivery-link-clicked`, value: type });
+    }
+  };
+
   // Mobile
 
   if (windowWidth < 769) {
@@ -66,11 +76,17 @@ const SideNav = () => {
           </button>
 
           <div className={styles.orderButtons}>
-            <a href={orderPickupLink} target="_blank" className={styles.button}>
+            <a
+              onClick={() => handleClick("chownow")}
+              href={orderPickupLink}
+              target="_blank"
+              className={styles.button}
+            >
               ORDER PICKUP
             </a>
 
             <a
+              onClick={() => handleClick("ubereats")}
               href={orderDeliveryLink}
               target="_blank"
               className={styles.button}
@@ -89,30 +105,75 @@ const SideNav = () => {
           >
             <ul className={styles.sideNavMenu}>
               <li className={styles.listItem}>
-                <a href="/" className={styles.listItemLink}>
+                <a
+                  onClick={() =>
+                    sendGTMEvent({
+                      event: `navigation-clicked`,
+                      value: "/home",
+                    })
+                  }
+                  href="/"
+                  className={styles.listItemLink}
+                >
                   Home
                 </a>
               </li>
               <li className={styles.listItem}>
-                <a href="/menu" className={styles.listItemLink}>
+                <a
+                  onClick={() =>
+                    sendGTMEvent({
+                      event: `navigation-clicked`,
+                      value: "/menu",
+                    })
+                  }
+                  href="/menu"
+                  className={styles.listItemLink}
+                >
                   Menu
                 </a>
               </li>
 
               <li className={styles.listItem}>
-                <a href="/soups" className={styles.listItemLink}>
+                <a
+                  onClick={() =>
+                    sendGTMEvent({
+                      event: `navigation-clicked`,
+                      value: "/soups",
+                    })
+                  }
+                  href="/soups"
+                  className={styles.listItemLink}
+                >
                   Soups
                 </a>
               </li>
 
               <li className={styles.listItem}>
-                <a href="/catering" className={styles.listItemLink}>
+                <a
+                  onClick={() =>
+                    sendGTMEvent({
+                      event: `navigation-clicked`,
+                      value: "/catering",
+                    })
+                  }
+                  href="/catering"
+                  className={styles.listItemLink}
+                >
                   Catering
                 </a>
               </li>
 
               <li className={styles.listItem}>
-                <a href="/about" className={styles.listItemLink}>
+                <a
+                  onClick={() =>
+                    sendGTMEvent({
+                      event: `navigation-clicked`,
+                      value: "/about",
+                    })
+                  }
+                  href="/about"
+                  className={styles.listItemLink}
+                >
                   About Us
                 </a>
               </li>
@@ -129,7 +190,17 @@ const SideNav = () => {
                 1722 S DALE MABRY HWY TAMPA, FL 33629
               </li>
               <li>
-                <a href="tel:813-254-2806">813-254-2806</a>
+                <a
+                  onClick={() =>
+                    sendGTMEvent({
+                      event: `link-clicked`,
+                      value: "phone-number",
+                    })
+                  }
+                  href="tel:813-254-2806"
+                >
+                  813-254-2806
+                </a>
               </li>
             </ul>
           </nav>
@@ -142,31 +213,76 @@ const SideNav = () => {
         <nav className={`${styles.sideNav}`}>
           <ul className={styles.sideNavMenu}>
             <li className={styles.listItem}>
-              <a href="/" className={styles.listItemLink}>
+              <a
+                onClick={() =>
+                  sendGTMEvent({
+                    event: `navigation-clicked`,
+                    value: "/home",
+                  })
+                }
+                href="/"
+                className={styles.listItemLink}
+              >
                 Home
               </a>
             </li>
 
             <li className={styles.listItem}>
-              <a href="/menu" className={styles.listItemLink}>
+              <a
+                onClick={() =>
+                  sendGTMEvent({
+                    event: `navigation-clicked`,
+                    value: "/menu",
+                  })
+                }
+                href="/menu"
+                className={styles.listItemLink}
+              >
                 Menu
               </a>
             </li>
 
             <li className={styles.listItem}>
-              <a href="/soups" className={styles.listItemLink}>
+              <a
+                onClick={() =>
+                  sendGTMEvent({
+                    event: `navigation-clicked`,
+                    value: "/soups",
+                  })
+                }
+                href="/soups"
+                className={styles.listItemLink}
+              >
                 Soups
               </a>
             </li>
 
             <li className={styles.listItem}>
-              <a href="/catering" className={styles.listItemLink}>
+              <a
+                onClick={() =>
+                  sendGTMEvent({
+                    event: `navigation-clicked`,
+                    value: "/catering",
+                  })
+                }
+                href="/catering"
+                className={styles.listItemLink}
+              >
                 Catering
               </a>
             </li>
 
             <li className={styles.listItem}>
-              <a href="/about" className={styles.listItemLink}>
+              <a
+                onClick={() =>
+                  sendGTMEvent({
+                    event: `navigation-clicked`,
+                    value: "/about",
+                  })
+                }
+                href="/about"
+                className={styles.listItemLink}
+              >
                 About Us
               </a>
             </li>

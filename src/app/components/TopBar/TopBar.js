@@ -9,6 +9,7 @@ import {
   getBrandImageDesktop,
   getBrandImageMobile,
 } from "../../../utils/api";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 const avenirFont = localFont({ src: "../../assets/fonts/avenir_next.woff2" });
 
@@ -44,9 +45,23 @@ const TopBar = () => {
   const deliveryLink =
     "https://www.ubereats.com/store/woodys-famous-salads-south-tampa/bv6aTsx2Rm6xnWPw13gSbg?diningMode=DELIVERY&pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMjQ1OTIlMjBTJTIwVHdpbmxlYWYlMjBEciUyMiUyQyUyMnJlZmVyZW5jZSUyMiUzQSUyMmhlcmUlM0FhZiUzQXN0cmVldHNlY3Rpb24lM0FWNG1RM2tmbTl0RmplSGNnMGlpR2hDJTNBQ2djSUJDQzUtdk1rRUFFYUJEUTFPVEklMjIlMkMlMjJyZWZlcmVuY2VUeXBlJTIyJTNBJTIyaGVyZV9wbGFjZXMlMjIlMkMlMjJsYXRpdHVkZSUyMiUzQTMzLjI2Njg2JTJDJTIybG9uZ2l0dWRlJTIyJTNBLTExMS43NzIxNCU3RA%3D%3D";
 
+  const handleClick = (type) => {
+    if (type === "chownow") {
+      sendGTMEvent({ event: `pickup-link-clicked`, value: type });
+    } else {
+      sendGTMEvent({ event: `delivery-link-clicked`, value: type });
+    }
+  };
+
   return (
     <div className={styles.topBarContainer}>
-      <a href="/" className={styles.brandImageLink}>
+      <a
+        onClick={() =>
+          sendGTMEvent({ event: `navigation-clicked`, value: "/home" })
+        }
+        href="/"
+        className={styles.brandImageLink}
+      >
         {!brandImage ? (
           <div>Loading...</div>
         ) : (
@@ -69,15 +84,28 @@ const TopBar = () => {
       {windowWidth < 769 ? null : (
         <div className={`${styles.bars} ${avenirFont.className}`}>
           <div className={`${styles.bar} ${styles.bar1}`}>
-            <a href="/about" className={styles.bar1Item}>
+            <a
+              onClick={() =>
+                sendGTMEvent({ event: `navigation-clicked`, value: "/about" })
+              }
+              href="/about"
+              className={styles.bar1Item}
+            >
               About Us
             </a>
           </div>
           <div className={`${styles.bar} ${styles.bar2}`}>
             <div className={styles.bar2Item}>
-              <div className={styles.address}>{addressAndPhone?.address?.split(',')[0]}</div>
-              <div className={styles.address}>{addressAndPhone?.address?.split(',')[1]}</div>
+              <div className={styles.address}>
+                {addressAndPhone?.address?.split(",")[0]}
+              </div>
+              <div className={styles.address}>
+                {addressAndPhone?.address?.split(",")[1]}
+              </div>
               <a
+                onClick={() =>
+                  sendGTMEvent({ event: `link-clicked`, value: "phone-number" })
+                }
                 className={styles.phone}
                 href={`tel:${addressAndPhone.phoneNumber}`}
               >
@@ -86,15 +114,18 @@ const TopBar = () => {
             </div>
             <div className={styles.orderButtons}>
               <a
-                target="_blank"
                 href={pickupLink}
+                target="_blank"
+                onClick={() => handleClick("chownow")}
                 className={styles.orderNowLink}
               >
                 ORDER PICKUP
               </a>
+
               <a
-                target="_blank"
                 href={deliveryLink}
+                target="_blank"
+                onClick={() => handleClick("ubereats")}
                 className={styles.orderNowLink}
               >
                 ORDER DELIVERY

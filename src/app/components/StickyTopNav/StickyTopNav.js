@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./StickyTopNav.module.css";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 const StickyTopNav = () => {
   const [isSticky, setSticky] = useState(false);
@@ -22,14 +23,32 @@ const StickyTopNav = () => {
     };
   }, []);
 
+  const handleClick = (type) => {
+    if (type === "chownow") {
+      sendGTMEvent({ event: `pickup-link-clicked`, value: type });
+    } else {
+      sendGTMEvent({ event: `delivery-link-clicked`, value: type });
+    }
+  };
+
   return (
     <div className={`${styles.stickyTopNav} ${isSticky ? styles.sticky : ""}`}>
       <div className={styles.orderButtons}>
-        <a href={orderPickupLink} target="_blank" className={styles.button}>
+        <a
+          href={orderPickupLink}
+          target="_blank"
+          onClick={() => handleClick("chownow")}
+          className={styles.button}
+        >
           ORDER PICKUP
         </a>
 
-        <a href={orderDeliveryLink} target="_blank" className={styles.button}>
+        <a
+          href={orderDeliveryLink}
+          target="_blank"
+          onClick={() => handleClick("ubereats")}
+          className={styles.button}
+        >
           ORDER DELIVERY
         </a>
       </div>

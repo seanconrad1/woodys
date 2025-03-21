@@ -24,10 +24,7 @@ const Page = () => {
         {menuItems.map((item, index) => {
           return (
             <div key={index} className={styles.categoryContainer}>
-              <h2
-                id={item.category.toLowerCase()}
-                className={styles.header}
-              >
+              <h2 id={item.category.toLowerCase()} className={styles.header}>
                 {item.category}
               </h2>
               <div className={styles.menuGrid}>
