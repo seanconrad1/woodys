@@ -124,11 +124,21 @@ export async function getMenuItems() {
     throw new Error(`Failed to fetch data`);
   }
 
-  const predefinedOrder = ["Salads", "Soups", "Sandwiches", "Wheat Wraps", "Lunchboxes", "Catering"];
+  const predefinedOrder = {
+    Salads: 0,
+    Soups: 1,
+    Sandwiches: 2,
+    "Wheat Wraps": 3,
+    Catering: 4,
+    Lunchboxes: 5,
+    Sides: 6,
+    Beverages: 7,
+  };
 
   const objOfItems = () => {
     const obj = {};
-    // Sort the items by date created
+
+    // Sort by category
     res.items.forEach((item) => {
       if (obj[item.fields.category]) {
         obj[item.fields.category].push(item);
@@ -137,28 +147,26 @@ export async function getMenuItems() {
       }
     });
     // Convert the obj into an array of objects
-    return Object.keys(obj).map(category => ({
+    return Object.keys(obj).map((category) => ({
       category: category,
-      items: obj[category]
+      items: obj[category],
     }));
   };
 
-  const objects = objOfItems();
+  let objects = objOfItems();
 
-  // objects.sort((a, b) => {
-  //   const indexA = predefinedOrder.indexOf(a.category);
-  //   const indexB = predefinedOrder.indexOf(b.category);
-  
-  //   if (indexA === -1 && indexB === -1) return 0; // Both categories are not in the predefined order, keep their relative order
-  //   if (indexA === -1) return 1; // Only A is not in the predefined order, place A after B
-  //   if (indexB === -1) return -1; // Only B is not in the predefined order, place B after A
-  
-  //   return indexA - indexB; // Both categories are in the predefined order, sort them according to the predefined order
-  // });
-
+  let arr = [];
+  // Sorts the food categories by the predefined list
+  objects.forEach((object, idx) => {
+    Object.keys(predefinedOrder).forEach((item) => {
+      if (object.category === item) {
+        arr[predefinedOrder[item]] = object;
+      }
+    });
+  });
 
   // Return an array of objects with the category as the key and the items as the value.
-  return objects
+  return arr;
 }
 
 export async function getCateringInfo() {
@@ -170,7 +178,6 @@ export async function getCateringInfo() {
   }
   return res.fields;
 }
-
 
 export async function getHours() {
   let res;
