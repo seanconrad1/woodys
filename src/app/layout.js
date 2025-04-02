@@ -1,5 +1,5 @@
 import { Inter } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 import { Playfair_Display } from "next/font/google";
 import { config } from "@fortawesome/fontawesome-svg-core";
@@ -85,7 +85,7 @@ export default function RootLayout({ children }) {
         {children}
         <Footer />
       </body>
-      <GoogleAnalytics gaId="G-J9LDPP2WF8" />
+      <GoogleTagManager gaId="G-J9LDPP2WF8" />
     </html>
   );
 }
